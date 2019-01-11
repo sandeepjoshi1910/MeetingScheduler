@@ -1,0 +1,6 @@
+framework module Pods_RCurveUITests {
+  umbrella header "Pods-RCurveUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}

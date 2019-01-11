@@ -1,0 +1,16 @@
+PODS:
+  - TimeZonePicker (1.2.0)
+
+DEPENDENCIES:
+  - TimeZonePicker
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - TimeZonePicker
+
+SPEC CHECKSUMS:
+  TimeZonePicker: 8ed73f29ccbb2fca75855c0f3d7696c47abf5a90
+
+PODFILE CHECKSUM: af3d1b48da6ef35a109323bc558bbbca2ef5511e
+
+COCOAPODS: 1.5.3

@@ -1,0 +1,734 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		300A9C3E21D1E58700EC3962 /* TimePickController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300A9C3D21D1E58700EC3962 /* TimePickController.swift */; };
+		30B9FBD9214DFDE000E3EB9C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B9FBD8214DFDE000E3EB9C /* AppDelegate.swift */; };
+		30B9FBDB214DFDE000E3EB9C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B9FBDA214DFDE000E3EB9C /* ViewController.swift */; };
+		30B9FBDE214DFDE000E3EB9C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30B9FBDC214DFDE000E3EB9C /* Main.storyboard */; };
+		30B9FBE0214DFDE400E3EB9C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 30B9FBDF214DFDE400E3EB9C /* Assets.xcassets */; };
+		30B9FBE3214DFDE400E3EB9C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30B9FBE1214DFDE400E3EB9C /* LaunchScreen.storyboard */; };
+		30B9FBEE214DFDE400E3EB9C /* RCurveTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B9FBED214DFDE400E3EB9C /* RCurveTests.swift */; };
+		30B9FBF9214DFDE400E3EB9C /* RCurveUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B9FBF8214DFDE400E3EB9C /* RCurveUITests.swift */; };
+		30B9FC07214DFEFE00E3EB9C /* Curve.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B9FC06214DFEFE00E3EB9C /* Curve.swift */; };
+		30F530E92161460500754889 /* MeetingsViewControlelr.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F530E82161460500754889 /* MeetingsViewControlelr.swift */; };
+		30F530EB2161495C00754889 /* MeetingViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30F530EA2161495C00754889 /* MeetingViewCell.xib */; };
+		30F530ED21614F0800754889 /* MeetingViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F530EC21614F0800754889 /* MeetingViewCell.swift */; };
+		775050CA6D28566AD6F12F57 /* Pods_RCurve.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA6C32CA7037AE2862A506A5 /* Pods_RCurve.framework */; };
+		8E4C9804591E13DA06FD6739 /* Pods_RCurveUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E61A8F491F7932C9319F7D36 /* Pods_RCurveUITests.framework */; };
+		F7C032796D5AA5E6E6AAA8BF /* Pods_RCurveTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4869D214C5D6E4DA2FDA703A /* Pods_RCurveTests.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		30B9FBEA214DFDE400E3EB9C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 30B9FBCD214DFDE000E3EB9C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 30B9FBD4214DFDE000E3EB9C;
+			remoteInfo = RCurve;
+		};
+		30B9FBF5214DFDE400E3EB9C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 30B9FBCD214DFDE000E3EB9C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 30B9FBD4214DFDE000E3EB9C;
+			remoteInfo = RCurve;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		004462792B2CD66EF1273211 /* Pods-RCurveUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RCurveUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RCurveUITests/Pods-RCurveUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		300A9C3D21D1E58700EC3962 /* TimePickController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimePickController.swift; sourceTree = "<group>"; };
+		30B9FBD5214DFDE000E3EB9C /* RCurve.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RCurve.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		30B9FBD8214DFDE000E3EB9C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		30B9FBDA214DFDE000E3EB9C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		30B9FBDD214DFDE000E3EB9C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		30B9FBDF214DFDE400E3EB9C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		30B9FBE2214DFDE400E3EB9C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		30B9FBE4214DFDE400E3EB9C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		30B9FBE9214DFDE400E3EB9C /* RCurveTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RCurveTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		30B9FBED214DFDE400E3EB9C /* RCurveTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RCurveTests.swift; sourceTree = "<group>"; };
+		30B9FBEF214DFDE400E3EB9C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		30B9FBF4214DFDE400E3EB9C /* RCurveUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RCurveUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		30B9FBF8214DFDE400E3EB9C /* RCurveUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RCurveUITests.swift; sourceTree = "<group>"; };
+		30B9FBFA214DFDE400E3EB9C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		30B9FC06214DFEFE00E3EB9C /* Curve.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Curve.swift; sourceTree = "<group>"; };
+		30F530E82161460500754889 /* MeetingsViewControlelr.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingsViewControlelr.swift; sourceTree = "<group>"; };
+		30F530EA2161495C00754889 /* MeetingViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MeetingViewCell.xib; sourceTree = "<group>"; };
+		30F530EC21614F0800754889 /* MeetingViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingViewCell.swift; sourceTree = "<group>"; };
+		4869D214C5D6E4DA2FDA703A /* Pods_RCurveTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RCurveTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6998F0085E65E2811A5D2B5C /* Pods-RCurveTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RCurveTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RCurveTests/Pods-RCurveTests.debug.xcconfig"; sourceTree = "<group>"; };
+		6C9297A231388A16DD9FEE7E /* Pods-RCurveTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RCurveTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-RCurveTests/Pods-RCurveTests.release.xcconfig"; sourceTree = "<group>"; };
+		761718644FD0EA744CA4E4B6 /* Pods-RCurveUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RCurveUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-RCurveUITests/Pods-RCurveUITests.release.xcconfig"; sourceTree = "<group>"; };
+		E48BA9F1CECFE7CEF6C18EAF /* Pods-RCurve.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RCurve.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RCurve/Pods-RCurve.debug.xcconfig"; sourceTree = "<group>"; };
+		E61A8F491F7932C9319F7D36 /* Pods_RCurveUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RCurveUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EA6C32CA7037AE2862A506A5 /* Pods_RCurve.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RCurve.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F18D0AE02E4A89D9F320C316 /* Pods-RCurve.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RCurve.release.xcconfig"; path = "Pods/Target Support Files/Pods-RCurve/Pods-RCurve.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		30B9FBD2214DFDE000E3EB9C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				775050CA6D28566AD6F12F57 /* Pods_RCurve.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		30B9FBE6214DFDE400E3EB9C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F7C032796D5AA5E6E6AAA8BF /* Pods_RCurveTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		30B9FBF1214DFDE400E3EB9C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8E4C9804591E13DA06FD6739 /* Pods_RCurveUITests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		30B9FBCC214DFDE000E3EB9C = {
+			isa = PBXGroup;
+			children = (
+				30B9FBD7214DFDE000E3EB9C /* RCurve */,
+				30B9FBEC214DFDE400E3EB9C /* RCurveTests */,
+				30B9FBF7214DFDE400E3EB9C /* RCurveUITests */,
+				30B9FBD6214DFDE000E3EB9C /* Products */,
+				8EDD6ED1AC3E8AC4AC45DF5D /* Pods */,
+				8D0D9D4704280966B8B78A1D /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		30B9FBD6214DFDE000E3EB9C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				30B9FBD5214DFDE000E3EB9C /* RCurve.app */,
+				30B9FBE9214DFDE400E3EB9C /* RCurveTests.xctest */,
+				30B9FBF4214DFDE400E3EB9C /* RCurveUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		30B9FBD7214DFDE000E3EB9C /* RCurve */ = {
+			isa = PBXGroup;
+			children = (
+				30B9FBD8214DFDE000E3EB9C /* AppDelegate.swift */,
+				30B9FBDA214DFDE000E3EB9C /* ViewController.swift */,
+				30B9FC06214DFEFE00E3EB9C /* Curve.swift */,
+				300A9C3D21D1E58700EC3962 /* TimePickController.swift */,
+				30B9FBDC214DFDE000E3EB9C /* Main.storyboard */,
+				30F530EC21614F0800754889 /* MeetingViewCell.swift */,
+				30F530EA2161495C00754889 /* MeetingViewCell.xib */,
+				30F530E82161460500754889 /* MeetingsViewControlelr.swift */,
+				30B9FBDF214DFDE400E3EB9C /* Assets.xcassets */,
+				30B9FBE1214DFDE400E3EB9C /* LaunchScreen.storyboard */,
+				30B9FBE4214DFDE400E3EB9C /* Info.plist */,
+			);
+			path = RCurve;
+			sourceTree = "<group>";
+		};
+		30B9FBEC214DFDE400E3EB9C /* RCurveTests */ = {
+			isa = PBXGroup;
+			children = (
+				30B9FBED214DFDE400E3EB9C /* RCurveTests.swift */,
+				30B9FBEF214DFDE400E3EB9C /* Info.plist */,
+			);
+			path = RCurveTests;
+			sourceTree = "<group>";
+		};
+		30B9FBF7214DFDE400E3EB9C /* RCurveUITests */ = {
+			isa = PBXGroup;
+			children = (
+				30B9FBF8214DFDE400E3EB9C /* RCurveUITests.swift */,
+				30B9FBFA214DFDE400E3EB9C /* Info.plist */,
+			);
+			path = RCurveUITests;
+			sourceTree = "<group>";
+		};
+		8D0D9D4704280966B8B78A1D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				EA6C32CA7037AE2862A506A5 /* Pods_RCurve.framework */,
+				4869D214C5D6E4DA2FDA703A /* Pods_RCurveTests.framework */,
+				E61A8F491F7932C9319F7D36 /* Pods_RCurveUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		8EDD6ED1AC3E8AC4AC45DF5D /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E48BA9F1CECFE7CEF6C18EAF /* Pods-RCurve.debug.xcconfig */,
+				F18D0AE02E4A89D9F320C316 /* Pods-RCurve.release.xcconfig */,
+				6998F0085E65E2811A5D2B5C /* Pods-RCurveTests.debug.xcconfig */,
+				6C9297A231388A16DD9FEE7E /* Pods-RCurveTests.release.xcconfig */,
+				004462792B2CD66EF1273211 /* Pods-RCurveUITests.debug.xcconfig */,
+				761718644FD0EA744CA4E4B6 /* Pods-RCurveUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		30B9FBD4214DFDE000E3EB9C /* RCurve */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 30B9FBFD214DFDE400E3EB9C /* Build configuration list for PBXNativeTarget "RCurve" */;
+			buildPhases = (
+				697A4F3E4063FCC45E1AE573 /* [CP] Check Pods Manifest.lock */,
+				30B9FBD1214DFDE000E3EB9C /* Sources */,
+				30B9FBD2214DFDE000E3EB9C /* Frameworks */,
+				30B9FBD3214DFDE000E3EB9C /* Resources */,
+				BAFD5B8600336AB6BC247C55 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = RCurve;
+			productName = RCurve;
+			productReference = 30B9FBD5214DFDE000E3EB9C /* RCurve.app */;
+			productType = "com.apple.product-type.application";
+		};
+		30B9FBE8214DFDE400E3EB9C /* RCurveTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 30B9FC00214DFDE400E3EB9C /* Build configuration list for PBXNativeTarget "RCurveTests" */;
+			buildPhases = (
+				7D09130B6102C7313FF74904 /* [CP] Check Pods Manifest.lock */,
+				30B9FBE5214DFDE400E3EB9C /* Sources */,
+				30B9FBE6214DFDE400E3EB9C /* Frameworks */,
+				30B9FBE7214DFDE400E3EB9C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				30B9FBEB214DFDE400E3EB9C /* PBXTargetDependency */,
+			);
+			name = RCurveTests;
+			productName = RCurveTests;
+			productReference = 30B9FBE9214DFDE400E3EB9C /* RCurveTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		30B9FBF3214DFDE400E3EB9C /* RCurveUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 30B9FC03214DFDE400E3EB9C /* Build configuration list for PBXNativeTarget "RCurveUITests" */;
+			buildPhases = (
+				C5C7B2B638823BBC6E88276B /* [CP] Check Pods Manifest.lock */,
+				30B9FBF0214DFDE400E3EB9C /* Sources */,
+				30B9FBF1214DFDE400E3EB9C /* Frameworks */,
+				30B9FBF2214DFDE400E3EB9C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				30B9FBF6214DFDE400E3EB9C /* PBXTargetDependency */,
+			);
+			name = RCurveUITests;
+			productName = RCurveUITests;
+			productReference = 30B9FBF4214DFDE400E3EB9C /* RCurveUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		30B9FBCD214DFDE000E3EB9C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0940;
+				LastUpgradeCheck = 0940;
+				ORGANIZATIONNAME = "Sandeep Joshi";
+				TargetAttributes = {
+					30B9FBD4214DFDE000E3EB9C = {
+						CreatedOnToolsVersion = 9.4.1;
+					};
+					30B9FBE8214DFDE400E3EB9C = {
+						CreatedOnToolsVersion = 9.4.1;
+						TestTargetID = 30B9FBD4214DFDE000E3EB9C;
+					};
+					30B9FBF3214DFDE400E3EB9C = {
+						CreatedOnToolsVersion = 9.4.1;
+						TestTargetID = 30B9FBD4214DFDE000E3EB9C;
+					};
+				};
+			};
+			buildConfigurationList = 30B9FBD0214DFDE000E3EB9C /* Build configuration list for PBXProject "RCurve" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 30B9FBCC214DFDE000E3EB9C;
+			productRefGroup = 30B9FBD6214DFDE000E3EB9C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				30B9FBD4214DFDE000E3EB9C /* RCurve */,
+				30B9FBE8214DFDE400E3EB9C /* RCurveTests */,
+				30B9FBF3214DFDE400E3EB9C /* RCurveUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		30B9FBD3214DFDE000E3EB9C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				30F530EB2161495C00754889 /* MeetingViewCell.xib in Resources */,
+				30B9FBE3214DFDE400E3EB9C /* LaunchScreen.storyboard in Resources */,
+				30B9FBE0214DFDE400E3EB9C /* Assets.xcassets in Resources */,
+				30B9FBDE214DFDE000E3EB9C /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		30B9FBE7214DFDE400E3EB9C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		30B9FBF2214DFDE400E3EB9C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		697A4F3E4063FCC45E1AE573 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-RCurve-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7D09130B6102C7313FF74904 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-RCurveTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BAFD5B8600336AB6BC247C55 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-RCurve/Pods-RCurve-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/TimeZonePicker/TimeZonePicker.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TimeZonePicker.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RCurve/Pods-RCurve-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C5C7B2B638823BBC6E88276B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-RCurveUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		30B9FBD1214DFDE000E3EB9C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				30B9FBDB214DFDE000E3EB9C /* ViewController.swift in Sources */,
+				30F530ED21614F0800754889 /* MeetingViewCell.swift in Sources */,
+				30B9FC07214DFEFE00E3EB9C /* Curve.swift in Sources */,
+				30F530E92161460500754889 /* MeetingsViewControlelr.swift in Sources */,
+				30B9FBD9214DFDE000E3EB9C /* AppDelegate.swift in Sources */,
+				300A9C3E21D1E58700EC3962 /* TimePickController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		30B9FBE5214DFDE400E3EB9C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				30B9FBEE214DFDE400E3EB9C /* RCurveTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		30B9FBF0214DFDE400E3EB9C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				30B9FBF9214DFDE400E3EB9C /* RCurveUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		30B9FBEB214DFDE400E3EB9C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 30B9FBD4214DFDE000E3EB9C /* RCurve */;
+			targetProxy = 30B9FBEA214DFDE400E3EB9C /* PBXContainerItemProxy */;
+		};
+		30B9FBF6214DFDE400E3EB9C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 30B9FBD4214DFDE000E3EB9C /* RCurve */;
+			targetProxy = 30B9FBF5214DFDE400E3EB9C /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		30B9FBDC214DFDE000E3EB9C /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				30B9FBDD214DFDE000E3EB9C /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		30B9FBE1214DFDE400E3EB9C /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				30B9FBE2214DFDE400E3EB9C /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		30B9FBFB214DFDE400E3EB9C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		30B9FBFC214DFDE400E3EB9C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		30B9FBFE214DFDE400E3EB9C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E48BA9F1CECFE7CEF6C18EAF /* Pods-RCurve.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 65W3HGQ33P;
+				INFOPLIST_FILE = RCurve/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.sandeep.RCurve;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		30B9FBFF214DFDE400E3EB9C /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F18D0AE02E4A89D9F320C316 /* Pods-RCurve.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 65W3HGQ33P;
+				INFOPLIST_FILE = RCurve/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.sandeep.RCurve;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		30B9FC01214DFDE400E3EB9C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6998F0085E65E2811A5D2B5C /* Pods-RCurveTests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 65W3HGQ33P;
+				INFOPLIST_FILE = RCurveTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.sandeep.RCurveTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RCurve.app/RCurve";
+			};
+			name = Debug;
+		};
+		30B9FC02214DFDE400E3EB9C /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6C9297A231388A16DD9FEE7E /* Pods-RCurveTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 65W3HGQ33P;
+				INFOPLIST_FILE = RCurveTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.sandeep.RCurveTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RCurve.app/RCurve";
+			};
+			name = Release;
+		};
+		30B9FC04214DFDE400E3EB9C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 004462792B2CD66EF1273211 /* Pods-RCurveUITests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 65W3HGQ33P;
+				INFOPLIST_FILE = RCurveUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.sandeep.RCurveUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = RCurve;
+			};
+			name = Debug;
+		};
+		30B9FC05214DFDE400E3EB9C /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 761718644FD0EA744CA4E4B6 /* Pods-RCurveUITests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 65W3HGQ33P;
+				INFOPLIST_FILE = RCurveUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.sandeep.RCurveUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = RCurve;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		30B9FBD0214DFDE000E3EB9C /* Build configuration list for PBXProject "RCurve" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				30B9FBFB214DFDE400E3EB9C /* Debug */,
+				30B9FBFC214DFDE400E3EB9C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		30B9FBFD214DFDE400E3EB9C /* Build configuration list for PBXNativeTarget "RCurve" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				30B9FBFE214DFDE400E3EB9C /* Debug */,
+				30B9FBFF214DFDE400E3EB9C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		30B9FC00214DFDE400E3EB9C /* Build configuration list for PBXNativeTarget "RCurveTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				30B9FC01214DFDE400E3EB9C /* Debug */,
+				30B9FC02214DFDE400E3EB9C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		30B9FC03214DFDE400E3EB9C /* Build configuration list for PBXNativeTarget "RCurveUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				30B9FC04214DFDE400E3EB9C /* Debug */,
+				30B9FC05214DFDE400E3EB9C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 30B9FBCD214DFDE000E3EB9C /* Project object */;
+}
