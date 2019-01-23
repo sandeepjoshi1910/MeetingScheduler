@@ -12,6 +12,10 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
     
     var prevAngle : CGFloat = 0
     var viewAngle : CGFloat = 0
+    
+    var bigAngle : CGFloat = 0
+    var smallAngle : CGFloat = 0
+    
     @IBOutlet weak var curveView: Curve!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,8 +29,19 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
 
     @objc private func handleGesture(_ gesture: RotationGestureRecognizer) {
         
-        self.viewAngle = self.viewAngle - gesture.diff
-        self.curveView.backLayer.transform = CATransform3DMakeRotation(self.viewAngle, 0.0, 0.0, 1.0)
+//        self.viewAngle = self.viewAngle - gesture.diff
+        if gesture.layerName == "Mlayer" {
+            self.smallAngle = self.smallAngle - gesture.diff
+            self.bigAngle = self.bigAngle + gesture.diff
+            self.curveView.masterTLayer.transform = CATransform3DMakeRotation(self.smallAngle, 0.0, 0.0, 1.0)
+            self.curveView.backLayer.transform = CATransform3DMakeRotation(self.bigAngle, 0.0, 0.0, 1.0)
+        } else {
+            self.smallAngle = self.smallAngle + gesture.diff
+            self.bigAngle = self.bigAngle - gesture.diff
+            self.curveView.masterTLayer.transform = CATransform3DMakeRotation(self.smallAngle, 0.0, 0.0, 1.0)
+            self.curveView.backLayer.transform = CATransform3DMakeRotation(self.bigAngle, 0.0, 0.0, 1.0)
+        }
+        
 
     }
 

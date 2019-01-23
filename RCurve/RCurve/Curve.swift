@@ -37,6 +37,8 @@ class Curve: UIView {
     
     var rangle = 0.0
     
+    var layerToRotate = CAShapeLayer()
+    
     func drawShape() {
         
 //        for i in 0..<14 {
@@ -74,6 +76,9 @@ class Curve: UIView {
         clayer.shadowPath = UIBezierPath(arcCenter: CGPoint(x: clayer.bounds.midX, y: clayer.bounds.midY), radius: layer.bounds.width / 2 - 5, startAngle: CGFloat(0.0), endAngle: CGFloat(.pi * 2.0), clockwise: true).cgPath
         clayer.shadowOpacity = 1.0
         clayer.masksToBounds = false
+        
+        clayer.name = "Clayer"
+        mlayer.name = "Mlayer"
         
         layer.addSublayer(clayer)
         layer.addSublayer(mlayer)
@@ -206,6 +211,7 @@ class RotationGestureRecognizer : UIPanGestureRecognizer {
     
     private(set) var touchAngle : CGFloat = 0
     var diff : CGFloat = 0
+    var layerName : String = String()
     
     override init(target: Any?, action: Selector?) {
         super.init(target: target, action: action)
@@ -218,6 +224,24 @@ class RotationGestureRecognizer : UIPanGestureRecognizer {
         super.touchesBegan(touches, with: event)
         let ang = updateAngle(with: touches)
         touchAngle = ang
+        
+        let touch = touches.first
+        
+        guard let point = touch?.location(in: self.view) else { return }
+        guard let sublayers = self.view?.layer.sublayers as? [CAShapeLayer] else { return }
+        
+        
+        
+        for layer in sublayers{
+            if layer.path == nil {
+                continue
+            }
+            
+            if (layer.path?.contains((self.view!.layer.convert(point, to: layer))))! {
+                self.layerName = layer.name!
+            }
+        }
+        
     }
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent) {
