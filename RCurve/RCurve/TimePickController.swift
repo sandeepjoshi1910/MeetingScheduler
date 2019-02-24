@@ -12,6 +12,9 @@ import TimeZonePicker
 
 class TimePickController: UIViewController {
 
+    var timeDiff = 0
+    var meetingScheduler : ViewController = ViewController()
+    
     @IBOutlet weak var loclabel: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,6 +41,12 @@ class TimePickController: UIViewController {
         present(timeZonePicker, animated: true, completion: nil)
     }
     
+    @IBAction func selectMeetingTime(_ sender: Any) {
+        let timeZoneDiff = abs(self.timeDiff)
+        self.meetingScheduler = self.storyboard?.instantiateViewController(withIdentifier: "viewc") as! ViewController
+        self.meetingScheduler.timeDifferenceInSeconds = Float(timeZoneDiff)
+        present(self.meetingScheduler, animated: true, completion: nil)
+    }
     
     /*
     // MARK: - Navigation
@@ -56,6 +65,7 @@ extension TimePickController: TimeZonePickerDelegate {
     func timeZonePicker(_ timeZonePicker: TimeZonePickerViewController, didSelectTimeZone timeZone: TimeZone) {
         self.loclabel.text = "\(timeZone.identifier) \(timeZone.abbreviation()!)"
 //        timeZoneOffset.text = timeZone.abbreviation()
+        self.timeDiff = timeZone.secondsFromGMT() - self.timeDiff
         timeZonePicker.dismiss(animated: true, completion: nil)
     }
     

@@ -13,10 +13,10 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
     var prevAngle : CGFloat = 0
     var viewAngle : CGFloat = 0
     
-    
+    var timeDifferenceInSeconds : Float = 0
     
     var bigAngle : CGFloat = 0
-    var smallAngle : CGFloat = 75 * CGFloat.pi / 180.0
+    var smallAngle : CGFloat = 0
     @IBOutlet weak var bigtime: UILabel!
     @IBOutlet weak var smalltime: UILabel!
     @IBOutlet weak var meetingtitle: UILabel!
@@ -28,6 +28,7 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
         let gestureRecognizer = RotationGestureRecognizer(target: self, action: #selector(self.handleGesture(_:)))
         
         self.curveView.addGestureRecognizer(gestureRecognizer)
+        self.bigAngle = CGFloat(self.timeDifferenceInSeconds * (360.0 / (86400))) * (CGFloat.pi / 180.0)
         self.initializeAngles()
     }
     

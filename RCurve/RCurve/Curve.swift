@@ -11,6 +11,10 @@ import UIKit.UIGestureRecognizerSubclass
 
 class Curve: UIView {
 
+    override func awakeFromNib() {
+        
+    }
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         drawShape()
