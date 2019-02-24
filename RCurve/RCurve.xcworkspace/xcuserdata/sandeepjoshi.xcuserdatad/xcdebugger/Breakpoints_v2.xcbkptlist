@@ -9,13 +9,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "RCurve/Curve.swift"
-            timestampString = "569911158.58885"
+            filePath = "RCurve/ViewController.swift"
+            timestampString = "571850722.265324"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "226"
-            endingLineNumber = "226"
-            landmarkName = "touchesBegan(_:with:)"
+            startingLineNumber = "55"
+            endingLineNumber = "55"
+            landmarkName = "handleGesture(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -25,46 +25,46 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "RCurve/Curve.swift"
-            timestampString = "569911158.5889"
+            filePath = "RCurve/ViewController.swift"
+            timestampString = "571850722.26636"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "240"
-            endingLineNumber = "240"
-            landmarkName = "touchesBegan(_:with:)"
+            startingLineNumber = "52"
+            endingLineNumber = "52"
+            landmarkName = "handleGesture(_:)"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "RCurve.RotationGestureRecognizer.touchesBegan(_: Swift.Set&lt;__C.UITouch&gt;, with: __C.UIEvent) -&gt; ()"
-                  moduleName = "RCurve"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/sandeepjoshi/Documents/Development/iOS%20Projects/MeetingScheduler/RCurve/RCurve/Curve.swift"
-                  timestampString = "569900185.696884"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "244"
-                  endingLineNumber = "244"
-                  offsetFromSymbolStart = "1468">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "RCurve.RotationGestureRecognizer.touchesBegan(_: Swift.Set&lt;__C.UITouch&gt;, with: __C.UIEvent) -&gt; ()"
-                  moduleName = "RCurve"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/sandeepjoshi/Documents/Development/iOS%20Projects/MeetingScheduler/RCurve/RCurve/Curve.swift"
-                  timestampString = "569900185.6990449"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "244"
-                  endingLineNumber = "244"
-                  offsetFromSymbolStart = "2876">
-               </Location>
-            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "RCurve/ViewController.swift"
+            timestampString = "571850722.2668051"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "40"
+            endingLineNumber = "40"
+            landmarkName = "ViewController"
+            landmarkType = "3">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "RCurve/TimePickController.swift"
+            timestampString = "572674310.797052"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "57"
+            endingLineNumber = "57"
+            landmarkName = "timeZonePicker(_:didSelectTimeZone:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

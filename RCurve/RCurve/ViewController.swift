@@ -13,8 +13,13 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
     var prevAngle : CGFloat = 0
     var viewAngle : CGFloat = 0
     
+    
+    
     var bigAngle : CGFloat = 0
-    var smallAngle : CGFloat = 0
+    var smallAngle : CGFloat = 75 * CGFloat.pi / 180.0
+    @IBOutlet weak var bigtime: UILabel!
+    @IBOutlet weak var smalltime: UILabel!
+    @IBOutlet weak var meetingtitle: UILabel!
     
     @IBOutlet weak var curveView: Curve!
     override func viewDidLoad() {
@@ -23,9 +28,25 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
         let gestureRecognizer = RotationGestureRecognizer(target: self, action: #selector(self.handleGesture(_:)))
         
         self.curveView.addGestureRecognizer(gestureRecognizer)
-        
+        self.initializeAngles()
     }
     
+    func initializeAngles() {
+        self.curveView.masterTLayer.transform = CATransform3DMakeRotation(self.smallAngle, 0.0, 0.0, 1.0)
+        self.curveView.backLayer.transform = CATransform3DMakeRotation(self.bigAngle, 0.0, 0.0, 1.0)
+        self.bigtime.text = "\(self.bigAngle * 180 / .pi)"
+        self.smalltime.text = "\(self.smallAngle * 180 / .pi)"
+    }
+    
+    func correctAngles() {
+        if self.bigAngle > 360.0 {
+            self.bigAngle = self.bigAngle - 360.0
+            self.smallAngle = self.smallAngle + 360.0
+        } else if smallAngle > 360 {
+            self.smallAngle = self.smallAngle - 360.0
+            self.bigAngle = self.bigAngle + 360.0
+        }
+    }
 
     @objc private func handleGesture(_ gesture: RotationGestureRecognizer) {
         
@@ -33,13 +54,19 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
         if gesture.layerName == "Mlayer" {
             self.smallAngle = self.smallAngle - gesture.diff
             self.bigAngle = self.bigAngle + gesture.diff
+            self.correctAngles()
             self.curveView.masterTLayer.transform = CATransform3DMakeRotation(self.smallAngle, 0.0, 0.0, 1.0)
             self.curveView.backLayer.transform = CATransform3DMakeRotation(self.bigAngle, 0.0, 0.0, 1.0)
+            self.bigtime.text = "\(self.bigAngle * 180 / .pi)"
+            self.smalltime.text = "\(self.smallAngle * 180 / .pi)"
         } else {
             self.smallAngle = self.smallAngle + gesture.diff
             self.bigAngle = self.bigAngle - gesture.diff
+            self.correctAngles()
             self.curveView.masterTLayer.transform = CATransform3DMakeRotation(self.smallAngle, 0.0, 0.0, 1.0)
             self.curveView.backLayer.transform = CATransform3DMakeRotation(self.bigAngle, 0.0, 0.0, 1.0)
+            self.bigtime.text = "\(self.bigAngle * 180 / .pi)"
+            self.smalltime.text = "\(self.smallAngle * 180 / .pi)"
         }
         
 
