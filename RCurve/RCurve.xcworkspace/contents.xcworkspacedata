@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:TimeZoneCell.xib">
+   </FileRef>
+   <FileRef
       location = "group:RCurve.xcodeproj">
    </FileRef>
    <FileRef
