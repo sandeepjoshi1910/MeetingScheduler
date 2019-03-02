@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 46;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -61,9 +61,9 @@
 		34DF05FD8911C9606079174481D2C28C /* TimeZonePicker-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "TimeZonePicker-umbrella.h"; sourceTree = "<group>"; };
 		3AB5316E0923DA88DB5DA649CE61FDEC /* Pods-RCurveTests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-RCurveTests-frameworks.sh"; sourceTree = "<group>"; };
 		3B2AF0C414BC795C05D58BDEB8F72925 /* Pods-RCurve-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-RCurve-resources.sh"; sourceTree = "<group>"; };
-		3C15EF10D2A3E0F8F235504D601A98D8 /* Pods_RCurve.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_RCurve.framework; path = "Pods-RCurve.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3C15EF10D2A3E0F8F235504D601A98D8 /* Pods_RCurve.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RCurve.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3EBE336C9DD917E41E888F349DA29F00 /* Pods-RCurve-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-RCurve-acknowledgements.plist"; sourceTree = "<group>"; };
-		4047EFAFD3AFE8BB05C36F3259AA5A52 /* CitiesAndTimeZones.json */ = {isa = PBXFileReference; includeInIndex = 1; name = CitiesAndTimeZones.json; path = Resources/CitiesAndTimeZones.json; sourceTree = "<group>"; };
+		4047EFAFD3AFE8BB05C36F3259AA5A52 /* CitiesAndTimeZones.json */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.json; name = CitiesAndTimeZones.json; path = Resources/CitiesAndTimeZones.json; sourceTree = "<group>"; };
 		44A7703F434EA2025CEDCF93521905B5 /* Pods-RCurve-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-RCurve-frameworks.sh"; sourceTree = "<group>"; };
 		45B1D2D12A7FAE346E0407114B08F933 /* Pods-RCurveUITests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-RCurveUITests-acknowledgements.markdown"; sourceTree = "<group>"; };
 		4AA9336F5A8FD14130DA095972AB5F21 /* Pods-RCurveUITests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-RCurveUITests.modulemap"; sourceTree = "<group>"; };
@@ -75,14 +75,14 @@
 		668920EB6C00F74B1FCAED51B00AED05 /* Pods-RCurve.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-RCurve.debug.xcconfig"; sourceTree = "<group>"; };
 		908E902E026C5C22904CF9014A5604AD /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		93721112A4F2C200BCA09E8195BA50E1 /* Pods-RCurve.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-RCurve.release.xcconfig"; sourceTree = "<group>"; };
-		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		98740126A4CDF14065A963196F138BE3 /* CityCountryTimeZone.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CityCountryTimeZone.swift; path = Classes/CityCountryTimeZone.swift; sourceTree = "<group>"; };
-		A0DF163A9D3C0260B5BB6B2BA42D242F /* Pods_RCurveUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_RCurveUITests.framework; path = "Pods-RCurveUITests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A0DF163A9D3C0260B5BB6B2BA42D242F /* Pods_RCurveUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RCurveUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4D6BBDF15A26A05BBDDA77CD5531A54 /* Pods-RCurveTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-RCurveTests.debug.xcconfig"; sourceTree = "<group>"; };
 		AED9065D7C2EF5E294387D01AB3790D8 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B12AEAD86ACB60C18A6224A6CA89E8DB /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B51F3EC355A51ED50C74551F12D12009 /* TimeZonePicker.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = TimeZonePicker.xcconfig; sourceTree = "<group>"; };
-		B75EB8C4F6D9D243643FBD8BB5EC9326 /* Pods_RCurveTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_RCurveTests.framework; path = "Pods-RCurveTests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B75EB8C4F6D9D243643FBD8BB5EC9326 /* Pods_RCurveTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RCurveTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC2C02191C153C1554B35DEE8B2D09D4 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
 		C0E2A32C7DF5DEC7EB0B30BBE3B92A61 /* Pods-RCurveTests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-RCurveTests.modulemap"; sourceTree = "<group>"; };
 		C8552E55351F281780B04F17CA130B76 /* Pods-RCurve.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-RCurve.modulemap"; sourceTree = "<group>"; };
@@ -91,7 +91,7 @@
 		CDFB8E0FE4126452E78AA87BC9F0105C /* TimeZonePickerViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TimeZonePickerViewController.swift; path = Classes/TimeZonePickerViewController.swift; sourceTree = "<group>"; };
 		D1699D9DA1A756463CB04258EAD1AE0A /* Pods-RCurve-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-RCurve-umbrella.h"; sourceTree = "<group>"; };
 		D3052A3C7AFC372CEB2244E85AEC9967 /* Pods-RCurveUITests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-RCurveUITests-dummy.m"; sourceTree = "<group>"; };
-		D48807BE3BFD517EB4EBAB0A89F54DCD /* TimeZonePicker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = TimeZonePicker.framework; path = TimeZonePicker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D48807BE3BFD517EB4EBAB0A89F54DCD /* TimeZonePicker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TimeZonePicker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF02330F88758836A160675F291D7F28 /* Pods-RCurveTests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-RCurveTests-umbrella.h"; sourceTree = "<group>"; };
 		EA4CADD50D6D3B96C331376E123AB77F /* Pods-RCurveTests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-RCurveTests-acknowledgements.plist"; sourceTree = "<group>"; };
 		EE1E672826844AEA4B8799A5A21955D6 /* TimeZonePicker.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = TimeZonePicker.modulemap; sourceTree = "<group>"; };
@@ -236,7 +236,6 @@
 				BABB9FB067AD444C7E1275EF305AF8FA /* Resources */,
 				D9FA8831DD299678B60BFD290208F439 /* Support Files */,
 			);
-			name = TimeZonePicker;
 			path = TimeZonePicker;
 			sourceTree = "<group>";
 		};
@@ -407,6 +406,11 @@
 			attributes = {
 				LastSwiftUpdateCheck = 0930;
 				LastUpgradeCheck = 0930;
+				TargetAttributes = {
+					7B082E88BE6F972A4CBC9019EEFAFCDE = {
+						LastSwiftMigration = 1010;
+					};
+				};
 			};
 			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -519,11 +523,7 @@
 				INFOPLIST_FILE = "Target Support Files/Pods-RCurveUITests/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MACH_O_TYPE = staticlib;
 				MODULEMAP_FILE = "Target Support Files/Pods-RCurveUITests/Pods-RCurveUITests.modulemap";
 				OTHER_LDFLAGS = "";
@@ -557,11 +557,7 @@
 				INFOPLIST_FILE = "Target Support Files/Pods-RCurveTests/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MACH_O_TYPE = staticlib;
 				MODULEMAP_FILE = "Target Support Files/Pods-RCurveTests/Pods-RCurveTests.modulemap";
 				OTHER_LDFLAGS = "";
@@ -658,11 +654,7 @@
 				INFOPLIST_FILE = "Target Support Files/TimeZonePicker/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/TimeZonePicker/TimeZonePicker.modulemap";
 				PRODUCT_MODULE_NAME = TimeZonePicker;
 				PRODUCT_NAME = TimeZonePicker;
@@ -670,7 +662,7 @@
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -694,11 +686,7 @@
 				INFOPLIST_FILE = "Target Support Files/TimeZonePicker/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/TimeZonePicker/TimeZonePicker.modulemap";
 				PRODUCT_MODULE_NAME = TimeZonePicker;
 				PRODUCT_NAME = TimeZonePicker;
@@ -706,7 +694,7 @@
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -790,11 +778,7 @@
 				INFOPLIST_FILE = "Target Support Files/Pods-RCurve/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MACH_O_TYPE = staticlib;
 				MODULEMAP_FILE = "Target Support Files/Pods-RCurve/Pods-RCurve.modulemap";
 				OTHER_LDFLAGS = "";
@@ -830,11 +814,7 @@
 				INFOPLIST_FILE = "Target Support Files/Pods-RCurveUITests/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MACH_O_TYPE = staticlib;
 				MODULEMAP_FILE = "Target Support Files/Pods-RCurveUITests/Pods-RCurveUITests.modulemap";
 				OTHER_LDFLAGS = "";
@@ -869,11 +849,7 @@
 				INFOPLIST_FILE = "Target Support Files/Pods-RCurveTests/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MACH_O_TYPE = staticlib;
 				MODULEMAP_FILE = "Target Support Files/Pods-RCurveTests/Pods-RCurveTests.modulemap";
 				OTHER_LDFLAGS = "";
@@ -907,11 +883,7 @@
 				INFOPLIST_FILE = "Target Support Files/Pods-RCurve/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MACH_O_TYPE = staticlib;
 				MODULEMAP_FILE = "Target Support Files/Pods-RCurve/Pods-RCurve.modulemap";
 				OTHER_LDFLAGS = "";

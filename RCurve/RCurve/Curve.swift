@@ -119,7 +119,7 @@ class Curve: UIView {
             hourLayer.contentsScale = UIScreen.main.scale
             hourLayer.cornerRadius = 9.0
 //            hourLayer.backgroundColor = UIColor.red.cgColor
-            hourLayer.alignmentMode = kCAAlignmentCenter
+            hourLayer.alignmentMode = CATextLayerAlignmentMode.center
             let rotationAngle = ((startAngle) * .pi)/180.0
             hourLayer.transform = CATransform3DMakeRotation(rotationAngle, 0, 0, 1)
             self.masterTLayer.addSublayer(hourLayer)
@@ -147,7 +147,7 @@ class Curve: UIView {
             let rotationAngle = ((startAngle) * .pi)/180.0
             hourLayer.transform = CATransform3DMakeRotation(rotationAngle, 0, 0, 1)
 //            hourLayer.backgroundColor = UIColor.red.cgColor
-            hourLayer.alignmentMode = kCAAlignmentCenter
+            hourLayer.alignmentMode = CATextLayerAlignmentMode.center
             self.backLayer.addSublayer(hourLayer)
             startAngle = startAngle - 45
         }

@@ -258,13 +258,16 @@
 				TargetAttributes = {
 					30B9FBD4214DFDE000E3EB9C = {
 						CreatedOnToolsVersion = 9.4.1;
+						LastSwiftMigration = 1010;
 					};
 					30B9FBE8214DFDE400E3EB9C = {
 						CreatedOnToolsVersion = 9.4.1;
+						LastSwiftMigration = 1010;
 						TestTargetID = 30B9FBD4214DFDE000E3EB9C;
 					};
 					30B9FBF3214DFDE400E3EB9C = {
 						CreatedOnToolsVersion = 9.4.1;
+						LastSwiftMigration = 1010;
 						TestTargetID = 30B9FBD4214DFDE000E3EB9C;
 					};
 				};
@@ -587,7 +590,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.sandeep.RCurve;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -606,7 +609,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.sandeep.RCurve;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -627,7 +630,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.sandeep.RCurveTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RCurve.app/RCurve";
 			};
@@ -649,7 +652,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.sandeep.RCurveTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RCurve.app/RCurve";
 			};
@@ -670,7 +673,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.sandeep.RCurveUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = RCurve;
 			};
@@ -691,7 +694,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.sandeep.RCurveUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = RCurve;
 			};
