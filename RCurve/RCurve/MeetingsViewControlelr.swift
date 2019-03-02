@@ -9,6 +9,10 @@
 import UIKit
 
 class MeetingsViewControlelr: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    
+    
+    @IBOutlet weak var addNewMeetingBtn: UIButton!
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 5
     }
@@ -26,7 +30,12 @@ class MeetingsViewControlelr: UIViewController, UICollectionViewDelegate, UIColl
         meetingcv.dataSource = self
         meetingcv.delegate = self
         meetingcv.contentInset = UIEdgeInsets(top: 20.0, left: 0, bottom: 20.0, right: 0)
-        // Do any additional setup after loading the view.
+        
+        // Adding Border to the Add New Meeting Button
+        self.addNewMeetingBtn.layer.borderColor = UIColor.red.cgColor
+        self.addNewMeetingBtn.layer.borderWidth = 0.5
+        self.addNewMeetingBtn.layer.cornerRadius = 4.0
+        
     }
     
     
@@ -39,14 +48,11 @@ class MeetingsViewControlelr: UIViewController, UICollectionViewDelegate, UIColl
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func addNewMeeting(_ sender: Any) {
+        
+        let timeZonePickVC = self.storyboard?.instantiateViewController(withIdentifier: "timeZonePicker")
+        present(timeZonePickVC!, animated: true, completion: nil)
     }
-    */
+    
 
 }
