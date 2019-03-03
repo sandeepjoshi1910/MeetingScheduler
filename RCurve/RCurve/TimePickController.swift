@@ -19,6 +19,12 @@ class TimePickController: UIViewController, UICollectionViewDelegate, UICollecti
     @IBOutlet weak var backBtn: UIButton!
     @IBOutlet weak var addTimeZoneBtn: UIButton!
     @IBOutlet weak var timeZoneCV: UICollectionView!
+    
+    
+    @IBOutlet weak var meetingTitle: UITextField!
+    @IBOutlet weak var meetingDate: UITextField!
+    
+    
     var timeZones : [TimeZone] = []
     
     @IBOutlet weak var loclabel: UILabel!
@@ -48,11 +54,19 @@ class TimePickController: UIViewController, UICollectionViewDelegate, UICollecti
     
     // MARK : TimeZone Collection View
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        if (self.timeZones.count == 0) {
+            self.timeZoneCV.setEmptyMessage("Click on \"Add Time Zone\" to Select a Time Zone")
+        } else {
+            self.timeZoneCV.restore()
+        }
         return self.timeZones.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = timeZoneCV.dequeueReusableCell(withReuseIdentifier: "timezoneview", for: indexPath) as! TimeZoneCell
+        let tzone = self.timeZones[indexPath.row]
+        cell.locationName.text = tzone.identifier
+        cell.timeZoneText.text = tzone.abbreviation()!
         return cell
     }
     
@@ -64,16 +78,16 @@ class TimePickController: UIViewController, UICollectionViewDelegate, UICollecti
         return 15.0
     }
     
-
-    @IBAction func selectTimeZ(_ sender: Any) {
-        let timeZonePicker = TimeZonePickerViewController.getVC(withDelegate: self)
-        present(timeZonePicker, animated: true, completion: nil)
-    }
+    // MARK : Handle touch events
     
     @IBAction func selectMeetingTime(_ sender: Any) {
         let timeZoneDiff = abs(self.timeDiff)
         self.meetingScheduler = self.storyboard?.instantiateViewController(withIdentifier: "viewc") as! ViewController
         self.meetingScheduler.timeDifferenceInSeconds = Float(timeZoneDiff)
+        self.meetingScheduler.meeting_title = self.meetingTitle.text!
+        self.meetingScheduler.meeting_date = self.meetingDate.text!
+        
+
         present(self.meetingScheduler, animated: true, completion: nil)
     }
     
@@ -92,7 +106,7 @@ class TimePickController: UIViewController, UICollectionViewDelegate, UICollecti
 extension TimePickController: TimeZonePickerDelegate {
     
     func timeZonePicker(_ timeZonePicker: TimeZonePickerViewController, didSelectTimeZone timeZone: TimeZone) {
-        self.loclabel.text = "\(timeZone.identifier) \(timeZone.abbreviation()!)"
+//        self.loclabel.text = "\(timeZone.identifier) \(timeZone.abbreviation()!)"
         self.timeZones.append(timeZone)
         self.timeZoneCV.reloadData()
         
@@ -107,4 +121,23 @@ extension TimePickController: TimeZonePickerDelegate {
         timeZonePicker.dismiss(animated: true, completion: nil)
     }
     
+}
+
+extension UICollectionView {
+    
+    func setEmptyMessage(_ message: String) {
+        let messageLabel = UILabel(frame: CGRect(x: 0, y: 0, width: self.bounds.size.width, height: self.bounds.size.height))
+        messageLabel.text = message
+        messageLabel.textColor = UIColor.lightGray
+        messageLabel.numberOfLines = 2;
+        messageLabel.textAlignment = .center;
+        messageLabel.font = UIFont(name: "Helvetica", size: 15)
+        messageLabel.sizeToFit()
+        
+        self.backgroundView = messageLabel;
+    }
+    
+    func restore() {
+        self.backgroundView = nil
+    }
 }
