@@ -27,7 +27,12 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
     @IBOutlet weak var backBtn: UIButton!
     @IBOutlet weak var doneBtn: UIButton!
     
+    // Time
+    var bigHrs : Int = 0
+    var bigMins : Int = 0
     
+    var smallHrs : Int = 0
+    var smallMins : Int = 0
     
     var meeting_title : String = ""
     var meeting_date  : String = ""
@@ -55,6 +60,11 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
         self.curveView.backLayer.transform = CATransform3DMakeRotation(self.bigAngle, 0.0, 0.0, 1.0)
         self.bigtime.text = "\(self.bigAngle * 180 / .pi)"
         self.smalltime.text = "\(self.smallAngle * 180 / .pi)"
+        
+        (self.bigHrs, self.bigMins) = self.getUpdatedTime(hrs: 0, mins: 0, angle: self.bigAngle)
+        
+        self.bigtime.text = "\(self.bigHrs):\(self.bigMins)"
+        self.smalltime.text = "24:00"
     }
     
     func setupButtons() {
@@ -78,29 +88,44 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
     }
 
     @objc private func handleGesture(_ gesture: RotationGestureRecognizer) {
-        print(gesture.diff * .pi / 180.0)
+        print(((gesture.diff * 180.0 / .pi) * 1440) / 360)
 //        self.viewAngle = self.viewAngle - gesture.diff
-        if gesture.layerName == "Mlayer" {
-            
-            self.smallAngle = self.smallAngle - gesture.diff
-            self.bigAngle = self.bigAngle + gesture.diff
-            self.correctAngles()
-            self.curveView.masterTLayer.transform = CATransform3DMakeRotation(self.smallAngle, 0.0, 0.0, 1.0)
-            self.curveView.backLayer.transform = CATransform3DMakeRotation(self.bigAngle, 0.0, 0.0, 1.0)
-            self.bigtime.text = "\(self.bigAngle * 180 / .pi)"
-            self.smalltime.text = "\(self.smallAngle * 180 / .pi)"
-            
-        } else {
-            
-            self.smallAngle = self.smallAngle + gesture.diff
-            self.bigAngle = self.bigAngle - gesture.diff
-            self.correctAngles()
-            self.curveView.masterTLayer.transform = CATransform3DMakeRotation(self.smallAngle, 0.0, 0.0, 1.0)
-            self.curveView.backLayer.transform = CATransform3DMakeRotation(self.bigAngle, 0.0, 0.0, 1.0)
-            self.bigtime.text = "\(self.bigAngle * 180 / .pi)"
-            self.smalltime.text = "\(self.smallAngle * 180 / .pi)"
-            
-        }
+        
+        self.smallAngle = self.smallAngle - gesture.diff
+        self.bigAngle = self.bigAngle - gesture.diff
+        self.correctAngles()
+        
+        self.curveView.masterTLayer.transform = CATransform3DMakeRotation(self.smallAngle, 0.0, 0.0, 1.0)
+        self.curveView.backLayer.transform = CATransform3DMakeRotation(self.bigAngle, 0.0, 0.0, 1.0)
+        
+        (self.bigHrs, self.bigMins) = self.getUpdatedTime(hrs: bigHrs, mins: bigMins, angle: gesture.diff)
+        (self.smallHrs, self.smallMins) = self.getUpdatedTime(hrs: smallHrs, mins: smallMins, angle: gesture.diff)
+        
+        self.bigtime.text = "\(self.bigHrs) : \(self.bigMins)"
+        self.smalltime.text = "\(self.smallHrs) : \(self.smallMins)"
+        
+//        if gesture.layerName == "Mlayer" {
+//
+//            self.smallAngle = self.smallAngle - gesture.diff
+//            self.bigAngle = self.bigAngle + gesture.diff
+//            self.correctAngles()
+//
+//            self.curveView.masterTLayer.transform = CATransform3DMakeRotation(self.smallAngle, 0.0, 0.0, 1.0)
+//            self.curveView.backLayer.transform = CATransform3DMakeRotation(self.bigAngle, 0.0, 0.0, 1.0)
+//            self.bigtime.text = "\(self.bigAngle * 180 / .pi)"
+//            self.smalltime.text = "\(self.smallAngle * 180 / .pi)"
+//
+//        } else {
+//
+//            self.smallAngle = self.smallAngle + gesture.diff
+//            self.bigAngle = self.bigAngle - gesture.diff
+//            self.correctAngles()
+//            self.curveView.masterTLayer.transform = CATransform3DMakeRotation(self.smallAngle, 0.0, 0.0, 1.0)
+//            self.curveView.backLayer.transform = CATransform3DMakeRotation(self.bigAngle, 0.0, 0.0, 1.0)
+//            self.bigtime.text = "\(self.bigAngle * 180 / .pi)"
+//            self.smalltime.text = "\(self.smallAngle * 180 / .pi)"
+//
+//        }
         
     }
 
@@ -122,5 +147,17 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
         print("Done Now")
     }
     
+    
+    // Time Calculation
+    
+    func getUpdatedTime(hrs: Int, mins: Int, angle: CGFloat) -> (Int,Int) {
+        var dmins = Int(((abs(angle) * 180.0 / .pi) * 1440) / 360) + mins
+        var dhrs = mins / 60
+        dmins = dmins % 60
+        
+        dhrs = (dhrs + hrs) % 24
+        
+        return (dhrs,dmins)
+    }
 }
 
