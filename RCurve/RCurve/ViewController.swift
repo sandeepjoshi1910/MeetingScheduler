@@ -30,7 +30,7 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
     
     
     var meeting_title : String = ""
-    var meeting_date : String = ""
+    var meeting_date  : String = ""
     
     @IBOutlet weak var curveView: Curve!
     override func viewDidLoad() {
@@ -78,9 +78,10 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
     }
 
     @objc private func handleGesture(_ gesture: RotationGestureRecognizer) {
-        
+        print(gesture.diff * .pi / 180.0)
 //        self.viewAngle = self.viewAngle - gesture.diff
         if gesture.layerName == "Mlayer" {
+            
             self.smallAngle = self.smallAngle - gesture.diff
             self.bigAngle = self.bigAngle + gesture.diff
             self.correctAngles()
@@ -88,7 +89,9 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
             self.curveView.backLayer.transform = CATransform3DMakeRotation(self.bigAngle, 0.0, 0.0, 1.0)
             self.bigtime.text = "\(self.bigAngle * 180 / .pi)"
             self.smalltime.text = "\(self.smallAngle * 180 / .pi)"
+            
         } else {
+            
             self.smallAngle = self.smallAngle + gesture.diff
             self.bigAngle = self.bigAngle - gesture.diff
             self.correctAngles()
@@ -96,9 +99,9 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
             self.curveView.backLayer.transform = CATransform3DMakeRotation(self.bigAngle, 0.0, 0.0, 1.0)
             self.bigtime.text = "\(self.bigAngle * 180 / .pi)"
             self.smalltime.text = "\(self.smallAngle * 180 / .pi)"
+            
         }
         
-
     }
 
     override func didReceiveMemoryWarning() {
@@ -118,8 +121,6 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
     @IBAction func doneClicked(_ sender: Any) {
         print("Done Now")
     }
-    
-    
     
 }
 

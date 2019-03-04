@@ -27,7 +27,6 @@ class TimePickController: UIViewController, UICollectionViewDelegate, UICollecti
     
     var timeZones : [TimeZone] = []
     
-    @IBOutlet weak var loclabel: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
         
