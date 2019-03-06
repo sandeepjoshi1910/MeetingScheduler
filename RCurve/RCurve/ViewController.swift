@@ -78,13 +78,23 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
     }
     
     func correctAngles() {
-        if self.bigAngle > 360.0 {
+        self.bigAngle = self.bigAngle * 180.0 / .pi
+        while self.bigAngle > 360.0 {
             self.bigAngle = self.bigAngle - 360.0
-            self.smallAngle = self.smallAngle + 360.0
-        } else if smallAngle > 360 {
-            self.smallAngle = self.smallAngle - 360.0
+        }
+        
+        while self.bigAngle < 0.0 {
             self.bigAngle = self.bigAngle + 360.0
         }
+        
+        self.bigAngle = self.bigAngle * .pi / 180.0
+//        if self.bigAngle > 360.0 {
+//            self.bigAngle = self.bigAngle - 360.0
+//            self.smallAngle = self.smallAngle + 360.0
+//        } else if smallAngle > 360 {
+//            self.smallAngle = self.smallAngle - 360.0
+//            self.bigAngle = self.bigAngle + 360.0
+//        }
     }
 
     @objc private func handleGesture(_ gesture: RotationGestureRecognizer) {
@@ -98,11 +108,22 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
         self.curveView.masterTLayer.transform = CATransform3DMakeRotation(self.smallAngle, 0.0, 0.0, 1.0)
         self.curveView.backLayer.transform = CATransform3DMakeRotation(self.bigAngle, 0.0, 0.0, 1.0)
         
-        (self.bigHrs, self.bigMins) = self.getUpdatedTime(hrs: bigHrs, mins: bigMins, angle: gesture.diff)
-        (self.smallHrs, self.smallMins) = self.getUpdatedTime(hrs: smallHrs, mins: smallMins, angle: gesture.diff)
+        
+        
+        (self.bigHrs, self.bigMins) = self.getTimeForAngle()
         
         self.bigtime.text = "\(self.bigHrs) : \(self.bigMins)"
+        
+        (self.smallHrs,self.smallMins) = self.getSmallTime()
+        
         self.smalltime.text = "\(self.smallHrs) : \(self.smallMins)"
+        
+//        (self.bigHrs, self.bigMins) = self.getUpdatedTime(hrs: bigHrs, mins: bigMins, angle: gesture.diff)
+//        (self.smallHrs, self.smallMins) = self.getUpdatedTime(hrs: smallHrs, mins: smallMins, angle: gesture.diff)
+//
+//        self.bigtime.text = "\(self.bigHrs) : \(self.bigMins)"
+//        self.smalltime.text = "\(self.smallHrs) : \(self.smallMins)"
+        
         
 //        if gesture.layerName == "Mlayer" {
 //
@@ -149,6 +170,42 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
     
     
     // Time Calculation
+    
+    func getTimeForAngle() -> (Int,Int) {
+        let angle = Int(self.bigAngle * 180.0 / .pi)
+        var mins = angle * 4
+        var hrs = mins / 60
+        mins = mins % 60
+        
+        hrs = 24 - hrs
+        
+        
+        return (hrs,mins)
+    }
+    
+    func getSmallTime() -> (Int,Int) {
+        
+        var min = Int(self.timeDifferenceInSeconds / 60)
+        var hr = 0
+        
+        hr = min / 60
+        min = min % 60
+        
+        
+        min = self.bigMins + min
+        var morehr = 0
+        if min > 60 {
+            min = min - 60
+            morehr = 1
+        }
+        
+        hr = self.bigHrs + hr + morehr
+        if hr > 24 {
+            hr = hr - 24
+        }
+        
+        return (hr,min)
+    }
     
     func getUpdatedTime(hrs: Int, mins: Int, angle: CGFloat) -> (Int,Int) {
         var dmins = Int(((abs(angle) * 180.0 / .pi) * 1440) / 360) + mins
