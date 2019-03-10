@@ -27,6 +27,22 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
     @IBOutlet weak var backBtn: UIButton!
     @IBOutlet weak var doneBtn: UIButton!
     
+    // Time outlets
+    // Time Zone One
+    @IBOutlet weak var timeZoneNameOne: UILabel!
+    @IBOutlet weak var toneStartTime: UILabel!
+    @IBOutlet weak var toneEndTime: UILabel!
+    
+    // Time Zone Two
+    @IBOutlet weak var timeZoneNameTwo: UILabel!
+    @IBOutlet weak var ttwoStartTime: UILabel!
+    @IBOutlet weak var ttwoEndTime: UILabel!
+    
+    // Time Zone Views
+    @IBOutlet weak var tZoneOneView: UIView!
+    @IBOutlet weak var tZoneTwoView: UIView!
+    
+    
     // Time
     var bigHrs : Int = 0
     var bigMins : Int = 0
@@ -48,6 +64,22 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
         self.initializeAngles()
         self.setupMeetingInfo()
         self.setupButtons()
+        self.setupTimeZoneUI()
+    }
+    
+    func setupTimeZoneUI() {
+        // Add shadow to each of the view of both timeZones
+        let views : [UIView] = [tZoneOneView,tZoneTwoView]
+        
+        for view in views {
+//            view.layer.borderColor = UIColor.red.cgColor
+//            view.layer.borderWidth = 0.5
+            view.layer.shadowColor = UIColor.lightGray.cgColor
+            view.layer.shadowRadius = 6.0
+            view.layer.shadowOpacity = 0.4
+            view.layer.shadowOffset = CGSize.zero
+            view.layer.cornerRadius = 5.0
+        }
     }
     
     func setupMeetingInfo() {
@@ -58,13 +90,21 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
     func initializeAngles() {
         self.curveView.masterTLayer.transform = CATransform3DMakeRotation(self.smallAngle, 0.0, 0.0, 1.0)
         self.curveView.backLayer.transform = CATransform3DMakeRotation(self.bigAngle, 0.0, 0.0, 1.0)
-        self.bigtime.text = "\(self.bigAngle * 180 / .pi)"
-        self.smalltime.text = "\(self.smallAngle * 180 / .pi)"
         
         (self.bigHrs, self.bigMins) = self.getUpdatedTime(hrs: 0, mins: 0, angle: self.bigAngle)
         
-        self.bigtime.text = "\(self.bigHrs):\(self.bigMins)"
-        self.smalltime.text = "24:00"
+        (self.bigHrs, self.bigMins) = self.getTimeForAngle()
+        
+        self.toneStartTime.text = "\(self.bigHrs) : \(self.bigMins)"
+        let (eoneh,eonem) = self.getEndTime(hrs: self.bigHrs, mins: self.bigMins, duration: 90)
+        self.toneEndTime.text = "\(eoneh) : \(eonem)"
+        
+        (self.smallHrs,self.smallMins) = self.getSmallTime()
+        
+        self.ttwoStartTime.text = "\(self.smallHrs) : \(self.smallMins)"
+        let (etwoh, etwom) = self.getEndTime(hrs: self.smallHrs, mins: self.smallMins, duration: 90)
+        
+        self.ttwoEndTime.text = "\(etwoh) : \(etwom)"
     }
     
     func setupButtons() {
@@ -88,13 +128,7 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
         }
         
         self.bigAngle = self.bigAngle * .pi / 180.0
-//        if self.bigAngle > 360.0 {
-//            self.bigAngle = self.bigAngle - 360.0
-//            self.smallAngle = self.smallAngle + 360.0
-//        } else if smallAngle > 360 {
-//            self.smallAngle = self.smallAngle - 360.0
-//            self.bigAngle = self.bigAngle + 360.0
-//        }
+
     }
 
     @objc private func handleGesture(_ gesture: RotationGestureRecognizer) {
@@ -112,42 +146,20 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
         
         (self.bigHrs, self.bigMins) = self.getTimeForAngle()
         
-        self.bigtime.text = "\(self.bigHrs) : \(self.bigMins)"
+        self.toneStartTime.text = "\(self.bigHrs) : \(self.bigMins)"
+        let (eoneh,eonem) = self.getEndTime(hrs: self.bigHrs, mins: self.bigMins, duration: 90)
+        self.toneEndTime.text = "\(eoneh) : \(eonem)"
         
         (self.smallHrs,self.smallMins) = self.getSmallTime()
         
-        self.smalltime.text = "\(self.smallHrs) : \(self.smallMins)"
+        self.ttwoStartTime.text = "\(self.smallHrs) : \(self.smallMins)"
+        let (etwoh, etwom) = self.getEndTime(hrs: self.smallHrs, mins: self.smallMins, duration: 90)
         
-//        (self.bigHrs, self.bigMins) = self.getUpdatedTime(hrs: bigHrs, mins: bigMins, angle: gesture.diff)
-//        (self.smallHrs, self.smallMins) = self.getUpdatedTime(hrs: smallHrs, mins: smallMins, angle: gesture.diff)
-//
-//        self.bigtime.text = "\(self.bigHrs) : \(self.bigMins)"
-//        self.smalltime.text = "\(self.smallHrs) : \(self.smallMins)"
+        self.ttwoEndTime.text = "\(etwoh) : \(etwom)"
         
         
-//        if gesture.layerName == "Mlayer" {
-//
-//            self.smallAngle = self.smallAngle - gesture.diff
-//            self.bigAngle = self.bigAngle + gesture.diff
-//            self.correctAngles()
-//
-//            self.curveView.masterTLayer.transform = CATransform3DMakeRotation(self.smallAngle, 0.0, 0.0, 1.0)
-//            self.curveView.backLayer.transform = CATransform3DMakeRotation(self.bigAngle, 0.0, 0.0, 1.0)
-//            self.bigtime.text = "\(self.bigAngle * 180 / .pi)"
-//            self.smalltime.text = "\(self.smallAngle * 180 / .pi)"
-//
-//        } else {
-//
-//            self.smallAngle = self.smallAngle + gesture.diff
-//            self.bigAngle = self.bigAngle - gesture.diff
-//            self.correctAngles()
-//            self.curveView.masterTLayer.transform = CATransform3DMakeRotation(self.smallAngle, 0.0, 0.0, 1.0)
-//            self.curveView.backLayer.transform = CATransform3DMakeRotation(self.bigAngle, 0.0, 0.0, 1.0)
-//            self.bigtime.text = "\(self.bigAngle * 180 / .pi)"
-//            self.smalltime.text = "\(self.smallAngle * 180 / .pi)"
-//
-//        }
-        
+        self.timeZoneNameOne.text = "CST"
+        self.timeZoneNameTwo.text = "PST"
     }
 
     override func didReceiveMemoryWarning() {
@@ -173,7 +185,7 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
     
     func getTimeForAngle() -> (Int,Int) {
         let angle = Int(self.bigAngle * 180.0 / .pi)
-        var mins = angle * 4
+        var mins = (angle * 4) + 44
         var hrs = mins / 60
         mins = mins % 60
         
@@ -215,6 +227,20 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
         dhrs = (dhrs + hrs) % 24
         
         return (dhrs,dmins)
+    }
+    
+    func getEndTime(hrs:Int,mins:Int,duration:Int) -> (Int,Int){
+        
+        var h = hrs
+        var m = mins
+        m = m + duration
+        if (m / 60) > 0 {
+            h = h + (m / 60)
+        }
+        m = m % 60
+        h = h % 24
+        
+        return (h,m)
     }
 }
 

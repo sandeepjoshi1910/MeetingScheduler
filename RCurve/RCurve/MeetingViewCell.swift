@@ -10,6 +10,7 @@ import UIKit
 
 class MeetingViewCell: UICollectionViewCell {
     
+    @IBOutlet weak var closeBtn: UIButton!
     override init(frame: CGRect) {
         super.init(frame: frame)
     }
@@ -24,6 +25,9 @@ class MeetingViewCell: UICollectionViewCell {
         layer.shadowOpacity = 0.7
         layer.shadowOffset = CGSize.zero
         layer.cornerRadius = 20.0
+    }
+    @IBAction func close(_ sender: Any) {
+        print("Close clicked")
     }
     
     

@@ -10,7 +10,7 @@ import UIKit
 import CoreLocation
 import TimeZonePicker
 
-class TimePickController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+class TimePickController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, TimeZoneDelegateProtocol {
     
     var timeDiff = 0
     var meetingScheduler : ViewController = ViewController()
@@ -66,7 +66,14 @@ class TimePickController: UIViewController, UICollectionViewDelegate, UICollecti
         let tzone = self.timeZones[indexPath.row]
         cell.locationName.text = tzone.identifier
         cell.timeZoneText.text = tzone.abbreviation()!
+        cell.contentView.isUserInteractionEnabled = false
+        cell.delegate = self
         return cell
+    }
+    
+    
+    @objc func editButtonTapped() -> Void {
+        print("Hello Edit Button")
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
@@ -75,6 +82,10 @@ class TimePickController: UIViewController, UICollectionViewDelegate, UICollecti
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 15.0
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print(indexPath.row)
     }
     
     // MARK : Handle touch events
@@ -139,4 +150,15 @@ extension UICollectionView {
     func restore() {
         self.backgroundView = nil
     }
+}
+
+// MARK -  TimeZone Delegate Protocol
+extension TimePickController {
+    
+    func deleteCell(cell : TimeZoneCell) -> () {
+        let selectedIndex = self.timeZoneCV.indexPath(for: cell)?.row
+        self.timeZones.remove(at: selectedIndex!)
+        self.timeZoneCV.reloadData()
+    }
+    
 }

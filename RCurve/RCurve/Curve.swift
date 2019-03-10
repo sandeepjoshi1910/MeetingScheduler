@@ -93,6 +93,8 @@ class Curve: UIView {
         let origin: Point = (0, 0)
         self.masterTLayer.frame = CGRect(x: 0, y: 0, width: layer.bounds.width, height: layer.bounds.height)
         
+        
+        
        
         self.backLayer.position = layer.position
         self.backLayer.frame = CGRect(x: 0, y: 0, width: layer.bounds.width, height: layer.bounds.height)
@@ -151,6 +153,35 @@ class Curve: UIView {
             self.backLayer.addSublayer(hourLayer)
             startAngle = startAngle - 45
         }
+        
+        let durationInMins = CGFloat(45)
+        let rotationAngle = durationInMins * 360.0 / 1440
+        
+        let angles = [-90 + rotationAngle, -90 - rotationAngle]
+        
+        for angle in angles {
+            let lineLayer = CAShapeLayer()
+            let semiPath = UIBezierPath()
+//            let angle = CGFloat(-90)
+            semiPath.move(to: CGPoint(x: clayer.position.x + (30 * cos(angle * .pi / 180.0)), y: clayer.position.y + (30 * sin(angle * .pi / 180.0)) ))
+            semiPath.addLine(to: CGPoint(x: clayer.position.x + (140 * cos(angle * .pi / 180.0)), y: clayer.position.y + (140 * sin(angle * .pi / 180.0)) ))
+            
+            lineLayer.path = semiPath.cgPath
+            lineLayer.strokeColor = UIColor.blue.cgColor
+            lineLayer.lineWidth = 1.5
+            lineLayer.lineDashPattern = [2.0, 6.0]
+            lineLayer.lineCap = .round
+            lineLayer.shadowColor = UIColor.black.cgColor
+            lineLayer.shadowOffset = CGSize.zero
+            lineLayer.shadowRadius = 16.0
+            lineLayer.shadowOpacity = 1.0
+            lineLayer.shadowPath = semiPath.cgPath
+            self.layer.addSublayer(lineLayer)
+        }
+        
+        
+        
+        
         
         
         
