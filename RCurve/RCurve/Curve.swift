@@ -26,7 +26,7 @@ class Curve: UIView {
         drawShape()
     }
     
-    
+    var meetingDuration : Int = 90
     var dragAngle : CGFloat = 0.0
     
     let clayer = CAShapeLayer()
@@ -154,7 +154,7 @@ class Curve: UIView {
             startAngle = startAngle - 45
         }
         
-        let durationInMins = CGFloat(45)
+        let durationInMins = CGFloat(self.meetingDuration)
         let rotationAngle = durationInMins * 360.0 / 1440
         
         let angles = [-90 + rotationAngle, -90 - rotationAngle]
@@ -207,13 +207,13 @@ class Curve: UIView {
         clayer.transform = CATransform3DMakeRotation(0.0, 0, 0, 1)
         
         
-        let sectorLayer = CAShapeLayer()
-        let sectorPath = UIBezierPath(arcCenter: CGPoint(x: layer.frame.width/2, y: layer.frame.height/2), radius: 100, startAngle: CGFloat(0.0), endAngle:.pi/2.0, clockwise: false)
-        sectorLayer.path = sectorPath.cgPath
-        sectorLayer.fillColor = UIColor.cyan.cgColor
-        sectorLayer.opacity = 0.4
-        
-//        self.layer.addSublayer(sectorLayer)
+//        let sectorLayer = CAShapeLayer()
+//        let sectorPath = UIBezierPath(arcCenter: CGPoint(x: layer.frame.width/2, y: layer.frame.height/2), radius: 100, startAngle: CGFloat(0.0), endAngle:.pi/2.0, clockwise: false)
+//        sectorLayer.path = sectorPath.cgPath
+//        sectorLayer.fillColor = UIColor.cyan.cgColor
+//        sectorLayer.opacity = 0.4
+//
+////        self.layer.addSublayer(sectorLayer)
     }
     
 

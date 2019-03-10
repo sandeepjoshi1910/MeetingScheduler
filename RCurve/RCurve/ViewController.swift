@@ -17,8 +17,7 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
     
     var bigAngle : CGFloat = 0
     var smallAngle : CGFloat = 0
-    @IBOutlet weak var bigtime: UILabel!
-    @IBOutlet weak var smalltime: UILabel!
+
 
     @IBOutlet weak var meetingTitle: UILabel!
     @IBOutlet weak var meetingDate: UILabel!
@@ -53,6 +52,8 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
     var meeting_title : String = ""
     var meeting_date  : String = ""
     
+    var meetingDuration : Int = 45
+    
     @IBOutlet weak var curveView: Curve!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -65,6 +66,9 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
         self.setupMeetingInfo()
         self.setupButtons()
         self.setupTimeZoneUI()
+        
+        self.curveView.meetingDuration = self.meetingDuration
+        
     }
     
     func setupTimeZoneUI() {
@@ -96,13 +100,13 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
         (self.bigHrs, self.bigMins) = self.getTimeForAngle()
         
         self.toneStartTime.text = "\(self.bigHrs) : \(self.bigMins)"
-        let (eoneh,eonem) = self.getEndTime(hrs: self.bigHrs, mins: self.bigMins, duration: 90)
+        let (eoneh,eonem) = self.getEndTime(hrs: self.bigHrs, mins: self.bigMins, duration: self.meetingDuration)
         self.toneEndTime.text = "\(eoneh) : \(eonem)"
         
         (self.smallHrs,self.smallMins) = self.getSmallTime()
         
         self.ttwoStartTime.text = "\(self.smallHrs) : \(self.smallMins)"
-        let (etwoh, etwom) = self.getEndTime(hrs: self.smallHrs, mins: self.smallMins, duration: 90)
+        let (etwoh, etwom) = self.getEndTime(hrs: self.smallHrs, mins: self.smallMins, duration: self.meetingDuration)
         
         self.ttwoEndTime.text = "\(etwoh) : \(etwom)"
     }
@@ -147,13 +151,13 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
         (self.bigHrs, self.bigMins) = self.getTimeForAngle()
         
         self.toneStartTime.text = "\(self.bigHrs) : \(self.bigMins)"
-        let (eoneh,eonem) = self.getEndTime(hrs: self.bigHrs, mins: self.bigMins, duration: 90)
+        let (eoneh,eonem) = self.getEndTime(hrs: self.bigHrs, mins: self.bigMins, duration: self.meetingDuration)
         self.toneEndTime.text = "\(eoneh) : \(eonem)"
         
         (self.smallHrs,self.smallMins) = self.getSmallTime()
         
         self.ttwoStartTime.text = "\(self.smallHrs) : \(self.smallMins)"
-        let (etwoh, etwom) = self.getEndTime(hrs: self.smallHrs, mins: self.smallMins, duration: 90)
+        let (etwoh, etwom) = self.getEndTime(hrs: self.smallHrs, mins: self.smallMins, duration: self.meetingDuration)
         
         self.ttwoEndTime.text = "\(etwoh) : \(etwom)"
         
@@ -185,7 +189,7 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
     
     func getTimeForAngle() -> (Int,Int) {
         let angle = Int(self.bigAngle * 180.0 / .pi)
-        var mins = (angle * 4) + 44
+        var mins = (angle * 4) + (self.meetingDuration / 2)
         var hrs = mins / 60
         mins = mins % 60
         

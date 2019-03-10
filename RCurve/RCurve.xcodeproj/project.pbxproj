@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		300A9C3E21D1E58700EC3962 /* TimePickController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300A9C3D21D1E58700EC3962 /* TimePickController.swift */; };
+		301F88AA2234E55200636CE3 /* Meeting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 301F88A92234E55200636CE3 /* Meeting.swift */; };
 		3039367E222B30D60063B719 /* TimeZoneCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3039367D222B308E0063B719 /* TimeZoneCell.xib */; };
 		305DCA12220027E200B0DF34 /* TimeZoneCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 305DCA10220027E200B0DF34 /* TimeZoneCell.swift */; };
 		30B9FBD9214DFDE000E3EB9C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B9FBD8214DFDE000E3EB9C /* AppDelegate.swift */; };
@@ -46,6 +47,7 @@
 /* Begin PBXFileReference section */
 		004462792B2CD66EF1273211 /* Pods-RCurveUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RCurveUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RCurveUITests/Pods-RCurveUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		300A9C3D21D1E58700EC3962 /* TimePickController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimePickController.swift; sourceTree = "<group>"; };
+		301F88A92234E55200636CE3 /* Meeting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Meeting.swift; sourceTree = "<group>"; };
 		3039367D222B308E0063B719 /* TimeZoneCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = TimeZoneCell.xib; path = ../TimeZoneCell.xib; sourceTree = "<group>"; };
 		305DCA10220027E200B0DF34 /* TimeZoneCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeZoneCell.swift; sourceTree = "<group>"; };
 		30B9FBD5214DFDE000E3EB9C /* RCurve.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RCurve.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -138,6 +140,7 @@
 				305DCA10220027E200B0DF34 /* TimeZoneCell.swift */,
 				3039367D222B308E0063B719 /* TimeZoneCell.xib */,
 				30F530E82161460500754889 /* MeetingsViewControlelr.swift */,
+				301F88A92234E55200636CE3 /* Meeting.swift */,
 				30B9FBDF214DFDE400E3EB9C /* Assets.xcassets */,
 				30B9FBE1214DFDE400E3EB9C /* LaunchScreen.storyboard */,
 				30B9FBE4214DFDE400E3EB9C /* Info.plist */,
@@ -402,6 +405,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				30B9FBDB214DFDE000E3EB9C /* ViewController.swift in Sources */,
+				301F88AA2234E55200636CE3 /* Meeting.swift in Sources */,
 				30F530ED21614F0800754889 /* MeetingViewCell.swift in Sources */,
 				30B9FC07214DFEFE00E3EB9C /* Curve.swift in Sources */,
 				30F530E92161460500754889 /* MeetingsViewControlelr.swift in Sources */,
