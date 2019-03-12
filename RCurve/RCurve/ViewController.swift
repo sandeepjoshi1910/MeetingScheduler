@@ -91,6 +91,8 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
     func setupMeetingInfo() {
         self.meetingTitle.text = self.meeting_title
         self.meetingDate.text =  "On " + self.meeting_date
+        self.timeZoneNameOne.text = self.meetingData!.meetingTimes!.first!.timeZone!.abbreviation()
+        self.timeZoneNameTwo.text = self.meetingData!.meetingTimes!.last!.timeZone!.abbreviation()
     }
     
     func initializeAngles() {
@@ -138,7 +140,7 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
     }
 
     @objc private func handleGesture(_ gesture: RotationGestureRecognizer) {
-        print(((gesture.diff * 180.0 / .pi) * 1440) / 360)
+        print(((gesture.diff * 180.0 / .pi) * 1440) )
 //        self.viewAngle = self.viewAngle - gesture.diff
         
         self.smallAngle = self.smallAngle - gesture.diff
@@ -164,8 +166,6 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
         self.ttwoEndTime.text = "\(etwoh) : \(etwom)"
         
         
-        self.timeZoneNameOne.text = "CST"
-        self.timeZoneNameTwo.text = "PST"
     }
 
     override func didReceiveMemoryWarning() {

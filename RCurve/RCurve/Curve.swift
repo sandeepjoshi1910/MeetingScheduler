@@ -61,8 +61,8 @@ class Curve: UIView {
         let mlayer = CAShapeLayer()
         mlayer.path = mpath.cgPath
         
-//        mlayer.fillColor = UIColor(red: 211/255.0, green: 84/255.0, blue: 0/255.0, alpha: 1.0).cgColor
-        mlayer.fillColor = UIColor(red: 46/255.0, green: 204/255.0, blue: 113/255.0, alpha: 1).cgColor
+        mlayer.fillColor = UIColor(red: 211/255.0, green: 84/255.0, blue: 0/255.0, alpha: 1.0).cgColor
+//        mlayer.fillColor = UIColor(red: 46/255.0, green: 204/255.0, blue: 113/255.0, alpha: 1).cgColor
         mlayer.shadowOpacity = 1.0
         mlayer.shadowRadius = 4.0
         mlayer.shadowOffset = CGSize.zero
