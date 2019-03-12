@@ -18,6 +18,7 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
     var bigAngle : CGFloat = 0
     var smallAngle : CGFloat = 0
 
+    var meetingData : Meeting? = nil
 
     @IBOutlet weak var meetingTitle: UILabel!
     @IBOutlet weak var meetingDate: UILabel!
@@ -68,6 +69,7 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
         self.setupTimeZoneUI()
         
         self.curveView.meetingDuration = self.meetingDuration
+        
         
     }
     

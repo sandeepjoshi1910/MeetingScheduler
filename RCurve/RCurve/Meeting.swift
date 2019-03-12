@@ -12,8 +12,7 @@ class Meeting {
     
     // Properties
     var meetingDurationInMins : Int?
-    var meetingDate : Date?
-    var meetingTime : [MeetingTime]?
+    var meetingTimes : [MeetingTime]? = []
     
     
     func isMeetingInPast() -> Bool {

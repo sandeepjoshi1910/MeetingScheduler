@@ -27,7 +27,8 @@ class TimePickController: UIViewController, UICollectionViewDelegate, UICollecti
     
     
     var datePicker : UIDatePicker?
-    
+    let maxNumTimeZones : Int = 2
+    var meetDate : Date? = nil
     
     var timeZones : [TimeZone] = []
     
@@ -42,24 +43,58 @@ class TimePickController: UIViewController, UICollectionViewDelegate, UICollecti
     
     
     // MARK: - Handling Clicks
+    
+    // Date selected
     @objc func dateChanged(datePicker : UIDatePicker) {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "MM/dd/yyyy"
         self.meetingDate.text = dateFormatter.string(from: datePicker.date)
+        self.meetDate = datePicker.date
+//        let x = Calendar.current.dateComponents(in: TimeZone.init(secondsFromGMT: 19800)!, from: datePicker.date)
     }
     
+    // Dismiss the keyboard when tapped on the screen
     @objc func viewTapped(gesture : UITapGestureRecognizer) {
         view.endEditing(true)
     }
     
+    func createMeetingData() -> Meeting{
+        let newMeeting = Meeting()
+        newMeeting.meetingDurationInMins = Int(self.meetingDuration.text!)
+        newMeeting.meetingTimes = []
+        for timeZone in self.timeZones {
+            let meetingTime = MeetingTime()
+            meetingTime.startTime = self.meetDate!
+            var dateComp = DateComponents()
+            dateComp.second = timeZone.secondsFromGMT()
+            meetingTime.startTime = Calendar.current.date(byAdding: dateComp, to: meetingTime.startTime!)
+            
+            // End time
+            meetingTime.endTime = self.meetDate!
+            dateComp.second = timeZone.secondsFromGMT() + (Int(self.meetingDuration.text!)! * 60)
+            meetingTime.endTime = Calendar.current.date(byAdding: dateComp, to: meetingTime.endTime!)
+            
+            meetingTime.timeZone = timeZone
+            newMeeting.meetingTimes?.append(meetingTime)
+        }
+
+        return newMeeting
+    }
     
+    // Present Time Selection Controller
     @IBAction func selectMeetingTime(_ sender: Any) {
+        
+        
+        
         let timeZoneDiff = abs(self.timeDiff)
         self.meetingScheduler = self.storyboard?.instantiateViewController(withIdentifier: "viewc") as! ViewController
         self.meetingScheduler.timeDifferenceInSeconds = Float(timeZoneDiff)
         self.meetingScheduler.meeting_title = self.meetingTitle.text!
         self.meetingScheduler.meeting_date = self.meetingDate.text!
         self.meetingScheduler.meetingDuration = Int(self.meetingDuration.text!)!
+        
+        self.meetingScheduler.meetingData = self.createMeetingData()
+        
         present(self.meetingScheduler, animated: true, completion: nil)
     }
     
@@ -74,7 +109,7 @@ class TimePickController: UIViewController, UICollectionViewDelegate, UICollecti
     }
     
     func setAddTimeZoneButtonStatus() {
-        if self.timeZones.count == 2 {
+        if self.timeZones.count == maxNumTimeZones {
             self.addTimeZoneBtn.isEnabled = false
             self.addTimeZoneBtn.layer.borderColor = UIColor.lightGray.cgColor
             self.doneBtn.isEnabled = true
@@ -90,7 +125,7 @@ class TimePickController: UIViewController, UICollectionViewDelegate, UICollecti
 }
 
 extension TimePickController: TimeZonePickerDelegate {
-    
+    // This function is called once the timezone is selected
     func timeZonePicker(_ timeZonePicker: TimeZonePickerViewController, didSelectTimeZone timeZone: TimeZone) {
         self.timeZones.append(timeZone)
         self.timeZoneCV.reloadData()
@@ -166,10 +201,11 @@ extension TimePickController {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 15.0
     }
-    
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print(indexPath.row)
-    }
+
+//    CollectionView item selection not needed
+//    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+//        print(indexPath.row)
+//    }
 }
 
 
