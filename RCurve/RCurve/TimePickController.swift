@@ -58,32 +58,19 @@ class TimePickController: UIViewController, UICollectionViewDelegate, UICollecti
         view.endEditing(true)
     }
     
-    func createMeetingData() -> Meeting{
-        let newMeeting = Meeting()
+    func createMeetingData() -> TMeeting{
+        let newMeeting = TMeeting()
         newMeeting.meetingDurationInMins = Int(self.meetingDuration.text!)
-        newMeeting.meetingTimes = []
         for timeZone in self.timeZones {
-            let meetingTime = MeetingTime()
-            meetingTime.startTime = self.meetDate!
-            var dateComp = DateComponents()
-            dateComp.second = timeZone.secondsFromGMT()
-            meetingTime.startTime = Calendar.current.date(byAdding: dateComp, to: meetingTime.startTime!)
-            
-            // End time
-            meetingTime.endTime = self.meetDate!
-            dateComp.second = timeZone.secondsFromGMT() + (Int(self.meetingDuration.text!)! * 60)
-            meetingTime.endTime = Calendar.current.date(byAdding: dateComp, to: meetingTime.endTime!)
-            
-            meetingTime.timeZone = timeZone
-            newMeeting.meetingTimes?.append(meetingTime)
+            newMeeting.meetingDict[timeZone] = TMeetingTime()
+            newMeeting.timeZones?.append(timeZone)
         }
-
+        newMeeting.meetingDate = self.meetDate!
         return newMeeting
     }
     
     // Present Time Selection Controller
     @IBAction func selectMeetingTime(_ sender: Any) {
-        
         
         
         let timeZoneDiff = abs(self.timeDiff)

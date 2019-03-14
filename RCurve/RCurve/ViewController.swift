@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class ViewController: UIViewController, UIGestureRecognizerDelegate {
     
@@ -18,7 +19,7 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
     var bigAngle : CGFloat = 0
     var smallAngle : CGFloat = 0
 
-    var meetingData : Meeting? = nil
+    var meetingData : TMeeting? = nil
 
     @IBOutlet weak var meetingTitle: UILabel!
     @IBOutlet weak var meetingDate: UILabel!
@@ -42,6 +43,9 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
     @IBOutlet weak var tZoneOneView: UIView!
     @IBOutlet weak var tZoneTwoView: UIView!
     
+    // Time Zones
+    var timeZoneOne : TimeZone?
+    var timeZoneTwo : TimeZone?
     
     // Time
     var bigHrs : Int = 0
@@ -55,6 +59,13 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
     
     var meetingDuration : Int = 45
     
+    var managedContext : NSManagedObjectContext? = nil
+    
+    var meetingTimeEntityDescription : NSEntityDescription? = nil
+    
+    var meetingEntityDescriotion : NSEntityDescription? = nil
+    
+    
     @IBOutlet weak var curveView: Curve!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -67,9 +78,20 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
         self.setupMeetingInfo()
         self.setupButtons()
         self.setupTimeZoneUI()
+        self.initializeCoreData()
         
         self.curveView.meetingDuration = self.meetingDuration
         
+    }
+    
+    func initializeCoreData() {
+        guard let appDelegate =
+            UIApplication.shared.delegate as? AppDelegate else {
+                return
+        }
+        self.managedContext = appDelegate.persistentContainer.viewContext
+        self.meetingTimeEntityDescription = NSEntityDescription.entity(forEntityName: "MeetingTime", in: managedContext!)!
+        self.meetingEntityDescriotion = NSEntityDescription.entity(forEntityName: "Meeting", in: managedContext!)!
         
     }
     
@@ -78,8 +100,6 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
         let views : [UIView] = [tZoneOneView,tZoneTwoView]
         
         for view in views {
-//            view.layer.borderColor = UIColor.red.cgColor
-//            view.layer.borderWidth = 0.5
             view.layer.shadowColor = UIColor.lightGray.cgColor
             view.layer.shadowRadius = 6.0
             view.layer.shadowOpacity = 0.4
@@ -91,8 +111,10 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
     func setupMeetingInfo() {
         self.meetingTitle.text = self.meeting_title
         self.meetingDate.text =  "On " + self.meeting_date
-        self.timeZoneNameOne.text = self.meetingData!.meetingTimes!.first!.timeZone!.abbreviation()
-        self.timeZoneNameTwo.text = self.meetingData!.meetingTimes!.last!.timeZone!.abbreviation()
+        self.timeZoneNameOne.text = self.meetingData!.timeZones!.first!.abbreviation()
+        self.timeZoneNameTwo.text = self.meetingData!.timeZones!.last!.abbreviation()
+        self.timeZoneOne = self.meetingData!.timeZones!.first!
+        self.timeZoneTwo = self.meetingData!.timeZones!.last!
     }
     
     func initializeAngles() {
@@ -151,20 +173,32 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
         self.curveView.backLayer.transform = CATransform3DMakeRotation(self.bigAngle, 0.0, 0.0, 1.0)
         
         
-        
         (self.bigHrs, self.bigMins) = self.getTimeForAngle()
         
         self.toneStartTime.text = "\(self.bigHrs) : \(self.bigMins)"
+        
+        self.meetingData?.meetingDict[self.timeZoneOne!]?.startTime.hour = self.bigHrs
+        self.meetingData?.meetingDict[self.timeZoneOne!]?.startTime.minutes = self.bigMins
+        
         let (eoneh,eonem) = self.getEndTime(hrs: self.bigHrs, mins: self.bigMins, duration: self.meetingDuration)
         self.toneEndTime.text = "\(eoneh) : \(eonem)"
+        
+        self.meetingData?.meetingDict[self.timeZoneOne!]?.endTime.hour = eoneh
+        self.meetingData?.meetingDict[self.timeZoneOne!]?.endTime.minutes = eonem
         
         (self.smallHrs,self.smallMins) = self.getSmallTime()
         
         self.ttwoStartTime.text = "\(self.smallHrs) : \(self.smallMins)"
+        
+        self.meetingData?.meetingDict[self.timeZoneTwo!]?.startTime.hour = self.smallHrs
+        self.meetingData?.meetingDict[self.timeZoneTwo!]?.startTime.minutes = self.smallMins
+        
         let (etwoh, etwom) = self.getEndTime(hrs: self.smallHrs, mins: self.smallMins, duration: self.meetingDuration)
         
         self.ttwoEndTime.text = "\(etwoh) : \(etwom)"
         
+        self.meetingData?.meetingDict[self.timeZoneTwo!]?.endTime.hour = etwoh
+        self.meetingData?.meetingDict[self.timeZoneTwo!]?.endTime.minutes = etwom
         
     }
 
@@ -183,7 +217,31 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
     
     
     @IBAction func doneClicked(_ sender: Any) {
-        print("Done Now")
+        
+        self.meetingData?.meetingDict[self.timeZoneOne!]?.startTime.hour = self.bigHrs
+        self.meetingData?.meetingDict[self.timeZoneOne!]?.startTime.minutes = self.bigMins
+        
+        self.meetingData?.meetingDict[self.timeZoneTwo!]?.startTime.hour = self.smallHrs
+        self.meetingData?.meetingDict[self.timeZoneTwo!]?.startTime.minutes = self.smallMins
+        
+        let timeOne = NSManagedObject(entity: meetingTimeEntityDescription!, insertInto: managedContext!)
+        timeOne.setValue(self.meetingData?.meetingDict[self.timeZoneOne!]?.startTime.hour, forKey: "startTimeHr")
+        timeOne.setValue(self.meetingData?.meetingDict[self.timeZoneOne!]?.startTime.minutes, forKey: "startTimeMin")
+        timeOne.setValue(self.meetingData?.meetingDict[self.timeZoneOne!]?.endTime.hour, forKey: "endTimeHr")
+        timeOne.setValue(self.meetingData?.meetingDict[self.timeZoneOne!]?.endTime.minutes, forKey: "endTimeHr")
+        
+        let timeTwo = NSManagedObject(entity: meetingTimeEntityDescription!, insertInto: managedContext!)
+        timeTwo.setValue(self.meetingData?.meetingDict[self.timeZoneTwo!]?.startTime.hour, forKey: "startTimeHr")
+        timeTwo.setValue(self.meetingData?.meetingDict[self.timeZoneTwo!]?.startTime.minutes, forKey: "startTimeMin")
+        timeTwo.setValue(self.meetingData?.meetingDict[self.timeZoneTwo!]?.endTime.hour, forKey: "endTimeHr")
+        timeTwo.setValue(self.meetingData?.meetingDict[self.timeZoneTwo!]?.endTime.minutes, forKey: "endTimeHr")
+        
+        let meeting = NSManagedObject(entity: meetingEntityDescriotion!, insertInto: managedContext!)
+        meeting.setValue(self.meeting_title, forKey: "meetingTitle")
+        meeting.setValue(self.meetingDuration, forKey: "duration")
+        meeting.setValue(self.meetingData!.meetingDate!, forKey: "meetingDate")
+        
+        
     }
     
     

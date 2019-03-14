@@ -11,6 +11,7 @@
 		301F88AA2234E55200636CE3 /* Meeting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 301F88A92234E55200636CE3 /* Meeting.swift */; };
 		3039367E222B30D60063B719 /* TimeZoneCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3039367D222B308E0063B719 /* TimeZoneCell.xib */; };
 		305DCA12220027E200B0DF34 /* TimeZoneCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 305DCA10220027E200B0DF34 /* TimeZoneCell.swift */; };
+		306ED58F2239EEDD00B8227F /* RCurveModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 306ED58D2239EEDD00B8227F /* RCurveModel.xcdatamodeld */; };
 		30B9FBD9214DFDE000E3EB9C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B9FBD8214DFDE000E3EB9C /* AppDelegate.swift */; };
 		30B9FBDB214DFDE000E3EB9C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B9FBDA214DFDE000E3EB9C /* ViewController.swift */; };
 		30B9FBDE214DFDE000E3EB9C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30B9FBDC214DFDE000E3EB9C /* Main.storyboard */; };
@@ -50,6 +51,7 @@
 		301F88A92234E55200636CE3 /* Meeting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Meeting.swift; sourceTree = "<group>"; };
 		3039367D222B308E0063B719 /* TimeZoneCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = TimeZoneCell.xib; path = ../TimeZoneCell.xib; sourceTree = "<group>"; };
 		305DCA10220027E200B0DF34 /* TimeZoneCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeZoneCell.swift; sourceTree = "<group>"; };
+		306ED58E2239EEDD00B8227F /* RCurveModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = RCurveModel.xcdatamodel; sourceTree = "<group>"; };
 		30B9FBD5214DFDE000E3EB9C /* RCurve.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RCurve.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		30B9FBD8214DFDE000E3EB9C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		30B9FBDA214DFDE000E3EB9C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -131,6 +133,7 @@
 			isa = PBXGroup;
 			children = (
 				30B9FBD8214DFDE000E3EB9C /* AppDelegate.swift */,
+				306ED58D2239EEDD00B8227F /* RCurveModel.xcdatamodeld */,
 				30B9FBDA214DFDE000E3EB9C /* ViewController.swift */,
 				30B9FC06214DFEFE00E3EB9C /* Curve.swift */,
 				300A9C3D21D1E58700EC3962 /* TimePickController.swift */,
@@ -410,6 +413,7 @@
 				30B9FC07214DFEFE00E3EB9C /* Curve.swift in Sources */,
 				30F530E92161460500754889 /* MeetingsViewControlelr.swift in Sources */,
 				30B9FBD9214DFDE000E3EB9C /* AppDelegate.swift in Sources */,
+				306ED58F2239EEDD00B8227F /* RCurveModel.xcdatamodeld in Sources */,
 				305DCA12220027E200B0DF34 /* TimeZoneCell.swift in Sources */,
 				300A9C3E21D1E58700EC3962 /* TimePickController.swift in Sources */,
 			);
@@ -744,6 +748,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		306ED58D2239EEDD00B8227F /* RCurveModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				306ED58E2239EEDD00B8227F /* RCurveModel.xcdatamodel */,
+			);
+			currentVersion = 306ED58E2239EEDD00B8227F /* RCurveModel.xcdatamodel */;
+			path = RCurveModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 30B9FBCD214DFDE000E3EB9C /* Project object */;
 }
