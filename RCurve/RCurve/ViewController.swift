@@ -19,6 +19,8 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
     var bigAngle : CGFloat = 0
     var smallAngle : CGFloat = 0
 
+    @IBOutlet weak var meetDateOne: UILabel!
+    @IBOutlet weak var meetDateTwo: UILabel!
     var meetingData : TMeeting? = nil
 
     @IBOutlet weak var meetingTitle: UILabel!
@@ -88,14 +90,14 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
     }
     
     func initializeCoreData() {
-//        guard let appDelegate =
-//            UIApplication.shared.delegate as? AppDelegate else {
-//                return
-//        }
-//        self.managedContext = appDelegate.persistentContainer.viewContext
-//        self.meetingTimeEntityDescription = NSEntityDescription.entity(forEntityName: "MeetingTime", in: managedContext!)!
-//        self.meetingEntityDescriotion = NSEntityDescription.entity(forEntityName: "Meeting", in: managedContext!)!
-//
+        guard let appDelegate =
+            UIApplication.shared.delegate as? AppDelegate else {
+                return
+        }
+        self.managedContext = appDelegate.persistentContainer.viewContext
+        self.meetingTimeEntityDescription = NSEntityDescription.entity(forEntityName: "MeetingTime", in: managedContext!)!
+        self.meetingEntityDescriotion = NSEntityDescription.entity(forEntityName: "Meeting", in: managedContext!)!
+
     }
     
     func setupTimeZoneUI() {
@@ -205,7 +207,10 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
         
         
         
+        let dates = self.getDates()
         
+        self.meetDateOne.text = "On " + dates[0]
+        self.meetDateTwo.text = "On " + dates[1]
         
         
         
@@ -227,7 +232,7 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
     
     
     @IBAction func doneClicked(_ sender: Any) {
-                
+        
         var durationDateComps = DateComponents()
         var timeZoneDateComps = DateComponents()
         durationDateComps.minute = self.meetingDuration
@@ -243,6 +248,34 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
         let startDateNext = Calendar.current.date(byAdding: timeZoneDateComps, to: startDate!)
         let endDateNext = Calendar.current.date(byAdding: timeZoneDateComps, to: endDate!)
         
+        print("\(Calendar.current.component(.month, from: startDate!))/\(Calendar.current.component(.day, from: startDate!))/\(Calendar.current.component(.year, from: startDate!))")
+        
+        print("\(Calendar.current.component(.month, from: startDateNext!))/\(Calendar.current.component(.day, from: startDateNext!))/\(Calendar.current.component(.year, from: startDateNext!))")
+        
+    }
+    
+    func getDates() -> [String] {
+        var durationDateComps = DateComponents()
+        var timeZoneDateComps = DateComponents()
+        durationDateComps.minute = self.meetingDuration
+        
+        var startDateComps = getNewDateComps()
+        startDateComps.hour = self.bigHrs
+        startDateComps.minute = self.bigMins
+        
+        let startDate = Calendar.current.date(from: startDateComps)
+        let endDate = Calendar.current.date(byAdding: durationDateComps, to: startDate!)
+        
+        timeZoneDateComps.second = Int(self.timeDifferenceInSeconds)
+        let startDateNext = Calendar.current.date(byAdding: timeZoneDateComps, to: startDate!)
+        let endDateNext = Calendar.current.date(byAdding: timeZoneDateComps, to: endDate!)
+        
+        var dates : [String] = []
+        
+        dates.append("\(Calendar.current.component(.month, from: startDate!))/\(Calendar.current.component(.day, from: startDate!))/\(Calendar.current.component(.year, from: startDate!))")
+        
+        dates.append("\(Calendar.current.component(.month, from: startDateNext!))/\(Calendar.current.component(.day, from: startDateNext!))/\(Calendar.current.component(.year, from: startDateNext!))")
+        return dates
     }
     
     func getNewDateComps() -> DateComponents {
