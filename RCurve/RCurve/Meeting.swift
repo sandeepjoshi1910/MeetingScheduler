@@ -11,10 +11,11 @@ import UIKit
 class TMeeting {
     
     // Properties
-    var meetingDurationInMins : Int?
-    var meetingDict  : [TimeZone:TMeetingTime] = [:]
-    var timeZones    : [TimeZone]?
-    var meetingDate  : Date?
+    var meetingDurationInMins : Int = 45
+    var timeZones    : [TimeZone] = []
+    var meetingTimes : [TMeetingTime] = []
+    var meetingDate  : Date? = nil
+    
     func isMeetingInPast() -> Bool {
         //TODO: Add Logic to calculate if the date is in past
         return true
@@ -23,14 +24,11 @@ class TMeeting {
 }
 
 class TMeetingTime {
-    var startTime : MTime = MTime()
-    var endTime : MTime = MTime()
+    var startTime : Date? = nil
+    var endTime : Date? = nil
+    var timeZone : TimeZone? = nil
 }
 
-class MTime {
-    var hour : Int = 0
-    var minutes : Int = 0
-}
 
 
 

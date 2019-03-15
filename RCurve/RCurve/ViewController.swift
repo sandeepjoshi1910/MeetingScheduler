@@ -65,6 +65,7 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
     
     var meetingEntityDescriotion : NSEntityDescription? = nil
     
+    var meetingDateComps : DateComponents? = nil
     
     @IBOutlet weak var curveView: Curve!
     override func viewDidLoad() {
@@ -73,6 +74,8 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
         let gestureRecognizer = RotationGestureRecognizer(target: self, action: #selector(self.handleGesture(_:)))
         
         self.curveView.addGestureRecognizer(gestureRecognizer)
+        self.curveView.meetingDuration = self.meetingData!.meetingDurationInMins
+        self.curveView.drawShape()
         self.bigAngle = CGFloat(self.timeDifferenceInSeconds * (360.0 / (86400))) * (CGFloat.pi / 180.0)
         self.initializeAngles()
         self.setupMeetingInfo()
@@ -80,19 +83,19 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
         self.setupTimeZoneUI()
         self.initializeCoreData()
         
-        self.curveView.meetingDuration = self.meetingDuration
+//        self.curveView.meetingDuration = self.meetingDuration
         
     }
     
     func initializeCoreData() {
-        guard let appDelegate =
-            UIApplication.shared.delegate as? AppDelegate else {
-                return
-        }
-        self.managedContext = appDelegate.persistentContainer.viewContext
-        self.meetingTimeEntityDescription = NSEntityDescription.entity(forEntityName: "MeetingTime", in: managedContext!)!
-        self.meetingEntityDescriotion = NSEntityDescription.entity(forEntityName: "Meeting", in: managedContext!)!
-        
+//        guard let appDelegate =
+//            UIApplication.shared.delegate as? AppDelegate else {
+//                return
+//        }
+//        self.managedContext = appDelegate.persistentContainer.viewContext
+//        self.meetingTimeEntityDescription = NSEntityDescription.entity(forEntityName: "MeetingTime", in: managedContext!)!
+//        self.meetingEntityDescriotion = NSEntityDescription.entity(forEntityName: "Meeting", in: managedContext!)!
+//
     }
     
     func setupTimeZoneUI() {
@@ -111,10 +114,10 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
     func setupMeetingInfo() {
         self.meetingTitle.text = self.meeting_title
         self.meetingDate.text =  "On " + self.meeting_date
-        self.timeZoneNameOne.text = self.meetingData!.timeZones!.first!.abbreviation()
-        self.timeZoneNameTwo.text = self.meetingData!.timeZones!.last!.abbreviation()
-        self.timeZoneOne = self.meetingData!.timeZones!.first!
-        self.timeZoneTwo = self.meetingData!.timeZones!.last!
+        self.timeZoneNameOne.text = self.meetingData!.timeZones.first!.abbreviation()
+        self.timeZoneNameTwo.text = self.meetingData!.timeZones.last!.abbreviation()
+        self.timeZoneOne = self.meetingData!.timeZones.first!
+        self.timeZoneTwo = self.meetingData!.timeZones.last!
     }
     
     func initializeAngles() {
@@ -177,28 +180,35 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
         
         self.toneStartTime.text = "\(self.bigHrs) : \(self.bigMins)"
         
-        self.meetingData?.meetingDict[self.timeZoneOne!]?.startTime.hour = self.bigHrs
-        self.meetingData?.meetingDict[self.timeZoneOne!]?.startTime.minutes = self.bigMins
+//        self.meetingData?.meetingDict[self.timeZoneOne!]?.startTime.hour = self.bigHrs
+//        self.meetingData?.meetingDict[self.timeZoneOne!]?.startTime.minutes = self.bigMins
         
         let (eoneh,eonem) = self.getEndTime(hrs: self.bigHrs, mins: self.bigMins, duration: self.meetingDuration)
         self.toneEndTime.text = "\(eoneh) : \(eonem)"
         
-        self.meetingData?.meetingDict[self.timeZoneOne!]?.endTime.hour = eoneh
-        self.meetingData?.meetingDict[self.timeZoneOne!]?.endTime.minutes = eonem
+//        self.meetingData?.meetingDict[self.timeZoneOne!]?.endTime.hour = eoneh
+//        self.meetingData?.meetingDict[self.timeZoneOne!]?.endTime.minutes = eonem
         
         (self.smallHrs,self.smallMins) = self.getSmallTime()
         
         self.ttwoStartTime.text = "\(self.smallHrs) : \(self.smallMins)"
         
-        self.meetingData?.meetingDict[self.timeZoneTwo!]?.startTime.hour = self.smallHrs
-        self.meetingData?.meetingDict[self.timeZoneTwo!]?.startTime.minutes = self.smallMins
+//        self.meetingData?.meetingDict[self.timeZoneTwo!]?.startTime.hour = self.smallHrs
+//        self.meetingData?.meetingDict[self.timeZoneTwo!]?.startTime.minutes = self.smallMins
         
         let (etwoh, etwom) = self.getEndTime(hrs: self.smallHrs, mins: self.smallMins, duration: self.meetingDuration)
         
         self.ttwoEndTime.text = "\(etwoh) : \(etwom)"
         
-        self.meetingData?.meetingDict[self.timeZoneTwo!]?.endTime.hour = etwoh
-        self.meetingData?.meetingDict[self.timeZoneTwo!]?.endTime.minutes = etwom
+//        self.meetingData?.meetingDict[self.timeZoneTwo!]?.endTime.hour = etwoh
+//        self.meetingData?.meetingDict[self.timeZoneTwo!]?.endTime.minutes = etwom
+        
+        
+        
+        
+        
+        
+        
         
     }
 
@@ -217,31 +227,30 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
     
     
     @IBAction func doneClicked(_ sender: Any) {
+                
+        var durationDateComps = DateComponents()
+        var timeZoneDateComps = DateComponents()
+        durationDateComps.minute = self.meetingDuration
         
-        self.meetingData?.meetingDict[self.timeZoneOne!]?.startTime.hour = self.bigHrs
-        self.meetingData?.meetingDict[self.timeZoneOne!]?.startTime.minutes = self.bigMins
+        var startDateComps = getNewDateComps()
+        startDateComps.hour = self.bigHrs
+        startDateComps.minute = self.bigMins
         
-        self.meetingData?.meetingDict[self.timeZoneTwo!]?.startTime.hour = self.smallHrs
-        self.meetingData?.meetingDict[self.timeZoneTwo!]?.startTime.minutes = self.smallMins
+        let startDate = Calendar.current.date(from: startDateComps)
+        let endDate = Calendar.current.date(byAdding: durationDateComps, to: startDate!)
         
-        let timeOne = NSManagedObject(entity: meetingTimeEntityDescription!, insertInto: managedContext!)
-        timeOne.setValue(self.meetingData?.meetingDict[self.timeZoneOne!]?.startTime.hour, forKey: "startTimeHr")
-        timeOne.setValue(self.meetingData?.meetingDict[self.timeZoneOne!]?.startTime.minutes, forKey: "startTimeMin")
-        timeOne.setValue(self.meetingData?.meetingDict[self.timeZoneOne!]?.endTime.hour, forKey: "endTimeHr")
-        timeOne.setValue(self.meetingData?.meetingDict[self.timeZoneOne!]?.endTime.minutes, forKey: "endTimeHr")
+        timeZoneDateComps.second = Int(self.timeDifferenceInSeconds)
+        let startDateNext = Calendar.current.date(byAdding: timeZoneDateComps, to: startDate!)
+        let endDateNext = Calendar.current.date(byAdding: timeZoneDateComps, to: endDate!)
         
-        let timeTwo = NSManagedObject(entity: meetingTimeEntityDescription!, insertInto: managedContext!)
-        timeTwo.setValue(self.meetingData?.meetingDict[self.timeZoneTwo!]?.startTime.hour, forKey: "startTimeHr")
-        timeTwo.setValue(self.meetingData?.meetingDict[self.timeZoneTwo!]?.startTime.minutes, forKey: "startTimeMin")
-        timeTwo.setValue(self.meetingData?.meetingDict[self.timeZoneTwo!]?.endTime.hour, forKey: "endTimeHr")
-        timeTwo.setValue(self.meetingData?.meetingDict[self.timeZoneTwo!]?.endTime.minutes, forKey: "endTimeHr")
-        
-        let meeting = NSManagedObject(entity: meetingEntityDescriotion!, insertInto: managedContext!)
-        meeting.setValue(self.meeting_title, forKey: "meetingTitle")
-        meeting.setValue(self.meetingDuration, forKey: "duration")
-        meeting.setValue(self.meetingData!.meetingDate!, forKey: "meetingDate")
-        
-        
+    }
+    
+    func getNewDateComps() -> DateComponents {
+        var dateComps = DateComponents()
+        dateComps.month = self.meetingDateComps!.month!
+        dateComps.day = self.meetingDateComps!.day!
+        dateComps.year = self.meetingDateComps!.year!
+        return dateComps
     }
     
     

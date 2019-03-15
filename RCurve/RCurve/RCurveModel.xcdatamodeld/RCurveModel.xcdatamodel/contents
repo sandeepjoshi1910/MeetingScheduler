@@ -4,17 +4,15 @@
         <attribute name="duration" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="meetingDate" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="meetingTitle" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="meetingTime" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="MeetingTime" syncable="YES"/>
     </entity>
     <entity name="MeetingTime" representedClassName="MeetingTime" syncable="YES" codeGenerationType="class">
-        <attribute name="endTimeHr" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="endTimeMin" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="startTimeHr" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="startTimeMin" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="endTime" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="startTime" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="timeZone" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="meeting" optional="YES" toMany="YES" minCount="2" maxCount="2" deletionRule="Nullify" destinationEntity="Meeting" syncable="YES"/>
     </entity>
     <elements>
-        <element name="MeetingTime" positionX="8.7734375" positionY="-171.92578125" width="128" height="133"/>
-        <element name="Meeting" positionX="238.0078125" positionY="-17.7109375" width="128" height="88"/>
+        <element name="Meeting" positionX="238.0078125" positionY="-17.7109375" width="128" height="105"/>
+        <element name="MeetingTime" positionX="8.7734375" positionY="-171.92578125" width="128" height="90"/>
     </elements>
 </model>

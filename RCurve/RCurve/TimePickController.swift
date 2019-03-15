@@ -29,6 +29,7 @@ class TimePickController: UIViewController, UICollectionViewDelegate, UICollecti
     var datePicker : UIDatePicker?
     let maxNumTimeZones : Int = 2
     var meetDate : Date? = nil
+    var meetingDateComps : DateComponents? = nil
     
     var timeZones : [TimeZone] = []
     
@@ -39,6 +40,8 @@ class TimePickController: UIViewController, UICollectionViewDelegate, UICollecti
         setupButtons()
         setupDatePicker()
         setupGestureRecognizer()
+        
+        self.meetingDateComps = DateComponents()
     }
     
     
@@ -50,6 +53,10 @@ class TimePickController: UIViewController, UICollectionViewDelegate, UICollecti
         dateFormatter.dateFormat = "MM/dd/yyyy"
         self.meetingDate.text = dateFormatter.string(from: datePicker.date)
         self.meetDate = datePicker.date
+        let comps = self.meetingDate.text?.components(separatedBy: "/")
+        self.meetingDateComps!.month = Int(comps![0])
+        self.meetingDateComps!.day = Int(comps![1])
+        self.meetingDateComps!.year = Int(comps![2])
 //        let x = Calendar.current.dateComponents(in: TimeZone.init(secondsFromGMT: 19800)!, from: datePicker.date)
     }
     
@@ -58,15 +65,36 @@ class TimePickController: UIViewController, UICollectionViewDelegate, UICollecti
         view.endEditing(true)
     }
     
-    func createMeetingData() -> TMeeting{
-        let newMeeting = TMeeting()
-        newMeeting.meetingDurationInMins = Int(self.meetingDuration.text!)
+//    func createMeetingData() -> TMeeting{
+//        let newMeeting = TMeeting()
+////        newMeeting.meetingDurationInMins = Int(self.meetingDuration.text!)
+////        for timeZone in self.timeZones {
+////            newMeeting.meetingDict[timeZone] = TMeetingTime()
+////            newMeeting.timeZones?.append(timeZone)
+////        }
+////        newMeeting.meetingDate = self.meetDate!
+//        return newMeeting
+//    }
+    
+    func updateMeetingData() -> TMeeting {
+        let meeting = TMeeting()
         for timeZone in self.timeZones {
-            newMeeting.meetingDict[timeZone] = TMeetingTime()
-            newMeeting.timeZones?.append(timeZone)
+            let meetingTime = TMeetingTime()
+            meetingTime.startTime = self.meetDate!
+            var dateComp = DateComponents()
+            dateComp.second = timeZone.secondsFromGMT()
+            meetingTime.startTime = Calendar.current.date(byAdding: dateComp, to: meetingTime.startTime!)
+            
+            meetingTime.endTime = self.meetDate!
+            dateComp.second = timeZone.secondsFromGMT() + (Int(self.meetingDuration.text!)! * 60)
+            meetingTime.endTime = Calendar.current.date(byAdding: dateComp, to: meetingTime.endTime!)
+            
+            meetingTime.timeZone = timeZone
+            meeting.meetingTimes.append(meetingTime)
         }
-        newMeeting.meetingDate = self.meetDate!
-        return newMeeting
+        meeting.timeZones = self.timeZones
+        meeting.meetingDurationInMins = Int(self.meetingDuration.text!)!
+        return meeting
     }
     
     // Present Time Selection Controller
@@ -80,8 +108,8 @@ class TimePickController: UIViewController, UICollectionViewDelegate, UICollecti
         self.meetingScheduler.meeting_date = self.meetingDate.text!
         self.meetingScheduler.meetingDuration = Int(self.meetingDuration.text!)!
         
-        self.meetingScheduler.meetingData = self.createMeetingData()
-        
+        self.meetingScheduler.meetingData = self.updateMeetingData()
+        self.meetingScheduler.meetingDateComps = self.meetingDateComps
         present(self.meetingScheduler, animated: true, completion: nil)
     }
     

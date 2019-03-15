@@ -17,13 +17,13 @@ class Curve: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        drawShape()
+//        drawShape()
         
     }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        drawShape()
+//        drawShape()
     }
     
     var meetingDuration : Int = 90
@@ -161,7 +161,7 @@ class Curve: UIView {
         let rotationAngle = durationInMins * 360.0 / 1440
         
         let angles = [-90 + rotationAngle, -90 - rotationAngle]
-        
+        print("Meeting Duration \(self.meetingDuration)")
         for angle in angles {
             let lineLayer = CAShapeLayer()
             let semiPath = UIBezierPath()
